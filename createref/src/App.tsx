@@ -1,15 +1,12 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Form from "./components/Form";
 import { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
-import {
-  Button,
-  createMuiTheme,
-  ThemeProvider,
-  Typography,
-} from "@mui/material";
+import { createMuiTheme, ThemeProvider, Typography } from "@mui/material";
 import "./fonts.css";
 import background from "./images/backgroundlines.png";
+import Footer from "./components/Footer";
 
 const theme = createMuiTheme({
   typography: {
@@ -27,7 +24,11 @@ function App() {
       }}
     >
       <Navbar />
-      <Parallax ref={parallax} pages={2} style={{ top: "0", left: "0", background:  "beige"}}>
+      <Parallax
+        ref={parallax}
+        pages={2}
+        style={{ top: "0", left: "0", background: "beige" }}
+      >
         <ParallaxLayer
           offset={0}
           speed={2.5}
@@ -37,19 +38,25 @@ function App() {
             alignItems: "center",
             padding: "2%",
             backgroundImage: `url(${background})`,
-            backgroundSize: 'cover',
+            backgroundSize: "cover",
           }}
         >
-          
           <ThemeProvider theme={theme}>
             <div>
-            <Typography
-              variant="h1"
-              style={{ textDecoration: "none", color: "orange" }}
-            >
-              Kona Care Land Scaping
-            </Typography>
-            <button className="button-77" role="button" style={{marginTop: "40px"}}onClick={() => parallax.current.scrollTo(2)}>Book Now</button>
+              <Typography
+                variant="h1"
+                style={{ textDecoration: "none", color: "orange" }}
+              >
+                Kona Care Land Scaping
+              </Typography>
+              <button
+                className="button-77"
+                role="button"
+                style={{ marginTop: "40px" }}
+                onClick={() => parallax.current.scrollTo(2)}
+              >
+                Book Now
+              </button>
             </div>
           </ThemeProvider>
           <img
@@ -78,6 +85,7 @@ function App() {
         >
           <section>
             <div className="curve"></div>
+            <Footer parallax={parallax} />
           </section>
         </ParallaxLayer>
         <ParallaxLayer
@@ -89,7 +97,9 @@ function App() {
             alignItems: "center",
           }}
         >
-          <button onClick={() => parallax.current.scrollTo(0)}>Scroll to top</button>
+          <div>
+            <Form />
+          </div>
         </ParallaxLayer>
       </Parallax>
     </div>
