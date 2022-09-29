@@ -7,6 +7,8 @@ import { createMuiTheme, ThemeProvider, Typography } from "@mui/material";
 import "./fonts.css";
 import background from "./images/backgroundlines.png";
 import Footer from "./components/Footer";
+import Services from "./Services";
+import React from "react";
 
 const theme = createMuiTheme({
   typography: {
@@ -16,6 +18,12 @@ const theme = createMuiTheme({
 
 function App() {
   const parallax = useRef<IParallax>(null!);
+
+  const handleClick = (offset: number) => {
+    console.log("Scrolling to Bottom");
+    parallax.current.scrollTo(offset);
+  };
+
   return (
     <div
       style={{
@@ -47,13 +55,19 @@ function App() {
                 variant="h1"
                 style={{ textDecoration: "none", color: "orange" }}
               >
-                Kona Care Land Scaping
+                Kona Care
+              </Typography>
+              <Typography
+                variant="h1"
+                style={{ textDecoration: "none", color: "orange" }}
+              >
+                Landscaping
               </Typography>
               <button
                 className="button-77"
                 role="button"
                 style={{ marginTop: "40px" }}
-                onClick={() => parallax.current.scrollTo(2)}
+                onClick={() => handleClick(2)}
               >
                 Book Now
               </button>
@@ -73,10 +87,7 @@ function App() {
             justifyContent: "center",
           }}
         >
-          <img
-            src={require("./images/services.png")}
-            style={{ width: "100%" }}
-          />
+          <Services />
         </ParallaxLayer>
         <ParallaxLayer
           offset={1}
@@ -85,7 +96,7 @@ function App() {
         >
           <section>
             <div className="curve"></div>
-            <Footer parallax={parallax} />
+            <Footer offset={2} handleClick={handleClick} />
           </section>
         </ParallaxLayer>
         <ParallaxLayer
