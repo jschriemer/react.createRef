@@ -20,7 +20,7 @@ export default function Form() {
 
   return (
     <div>
-      <div>
+      <div style = {{padding: '50px'}}>
         <h1>Contact</h1>
         <form onSubmit={handleSubmit}>
           <div>

@@ -3,14 +3,13 @@ import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import React from "react";
-import { Button } from "@mui/material";
-import { IParallax } from "@react-spring/parallax";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 
-function BounceAnimation(props: {handleClick: (offset: number) => void}) {
+function BounceAnimation(props: { handleClick: (offset: number) => void }) {
   const [bounced, setBounced] = useState(false);
   const style = {
     display: "inline-block",
-    transform: bounced ? `rotate(0deg)` : `rotate(20deg)`,
+    transform: bounced ? `rotate(10deg)` : `rotate(0deg)`,
     transition: `transform 150ms`,
   };
   useEffect(() => {
@@ -37,6 +36,8 @@ function BounceAnimation(props: {handleClick: (offset: number) => void}) {
           border: "none",
           cursor: "pointer",
           outline: "none",
+          position: "relative",
+          top: "74%",
         }}
       >
         <img
@@ -48,8 +49,11 @@ function BounceAnimation(props: {handleClick: (offset: number) => void}) {
   );
 }
 
-export default function Footer(props: {offset: Number, handleClick: (offset: number) => void}) {
-  console.log(typeof props.handleClick)
+export default function Footer(props: {
+  offset: Number;
+  handleClick: (offset: number) => void;
+}) {
+  console.log(typeof props.handleClick);
   return (
     <div style={{ position: "absolute", width: "100%", bottom: -150 }}>
       <Container
@@ -59,30 +63,64 @@ export default function Footer(props: {offset: Number, handleClick: (offset: num
         <Box
           sx={{
             flexGrow: 1,
-            justifyContent: "center",
+            justifyContent: "left",
             display: "flex",
-            my: 1,
           }}
         >
-          <a href="/">
-            <img
-              src={require("../images/kona_care_logo.PNG")}
-              style={{ width: "100%", height: "auto", maxWidth: "100px" }}
-            />
-          </a>
+          <Typography
+            variant="caption"
+            color="white"
+            style={{ position: "relative", top: "80%" }}
+          >
+            Kona Care Landscaping ®
+          </Typography>
+          <BounceAnimation handleClick={props.handleClick} />
         </Box>
         <Box
           sx={{
             flexGrow: 1,
             justifyContent: "center",
             display: "flex",
-            mb: 2,
+            my: 1,
           }}
         >
-          <BounceAnimation handleClick={props.handleClick} />
-          <Typography variant="caption" color="initial">
-            Copyright ©2022. [] Limited
-          </Typography>
+          <a
+            href="https://www.instagram.com/konacareyyc/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaInstagram
+              size={50}
+              style={{
+                color: "white",
+                padding: "10px",
+                position: "relative",
+                top: "40%",
+              }}
+            />
+          </a>
+          <a
+            href="https://www.facebook.com/KonaLawnGardenSnow/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaFacebook
+              size={50}
+              style={{
+                color: "white",
+                padding: "10px",
+                position: "relative",
+                top: "40%",
+                marginRight: "20%",
+              }}
+            />
+          </a>
+          <a href="/">
+            <img
+              src={require("../images/kona_care_logo.PNG")}
+              style={{ width: "100%", height: "auto", maxWidth: "180px" }}
+            />
+          </a>
         </Box>
       </Container>
     </div>

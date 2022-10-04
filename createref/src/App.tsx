@@ -3,18 +3,12 @@ import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 import { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
-import { createMuiTheme, ThemeProvider, Typography } from "@mui/material";
 import "./fonts.css";
 import background from "./images/backgroundlines.png";
 import Footer from "./components/Footer";
-import Services from "./Services";
+import Home from "./components/Home";
+import Services from "./components/Services";
 import React from "react";
-
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: ["Sora", "sans-serif"].join(","),
-  },
-});
 
 function App() {
   const parallax = useRef<IParallax>(null!);
@@ -40,6 +34,7 @@ function App() {
         <ParallaxLayer
           offset={0}
           speed={2.5}
+          factor={1}
           style={{
             display: "flex",
             justifyContent: "space-evenly",
@@ -49,66 +44,45 @@ function App() {
             backgroundSize: "cover",
           }}
         >
-          <ThemeProvider theme={theme}>
-            <div>
-              <Typography
-                variant="h1"
-                style={{ textDecoration: "none", color: "orange" }}
-              >
-                Kona Care
-              </Typography>
-              <Typography
-                variant="h1"
-                style={{ textDecoration: "none", color: "orange" }}
-              >
-                Landscaping
-              </Typography>
-              <button
-                className="button-77"
-                role="button"
-                style={{ marginTop: "40px" }}
-                onClick={() => handleClick(2)}
-              >
-                Book Now
-              </button>
-            </div>
-          </ThemeProvider>
-          <img
-            src={require("./images/kona_care_logo.PNG")}
-            style={{ width: "100%", height: "auto", maxWidth: "35vw" }}
-          />
+          <Home offset={2} handleClick={handleClick} />
         </ParallaxLayer>
-        <ParallaxLayer
-          offset={0.8}
-          speed={1}
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
+        <ParallaxLayer offset={0.99} speed={1.8}>
+          <div style={{padding: "50px"}}>
+          <h1>About</h1>
+          <div style={{display: "flex"}}>
+          <p>
+            Hey there! My name's Markus, and I've been providing lawn and snow
+            care in the Calgary area since 2017. Kona Care has grown much since
+            those early days, and the number of services offered has too. With
+            various lawn care services, including mowing, aeration, and more,
+            Kona Care will have your yard ready for summer. When winter rolls
+            around the corner, we provide snow removal services at a flat
+            monthly rate so that your property is accessible and safe. Kona Care
+            is fully licenced and insured, so you can rest assured that your
+            property is in good hands. Outside of my landscaping and snow
+            removal company, I'm either studying business administration at X
+            college or practising my game on the golf course!
+          </p>
+          <img
+        src={require("./images/puppy.png")}
+        style={{ width: "100%", height: "auto", maxWidth: "35vw" }}
+      />
+          </div>
+          </div>
           <Services />
         </ParallaxLayer>
         <ParallaxLayer
+          style={{ backgroundColor: "orange" }}
           offset={1}
           speed={2}
-          style={{ backgroundColor: "orange" }}
         >
           <section>
             <div className="curve"></div>
             <Footer offset={2} handleClick={handleClick} />
           </section>
         </ParallaxLayer>
-        <ParallaxLayer
-          offset={1}
-          speed={0.5}
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <div>
+        <ParallaxLayer offset={1.5} speed={5} horizontal={true}>
+          <div style={{ position: "absolute", bottom: 500, left: -1000 }}>
             <Form />
           </div>
         </ParallaxLayer>
