@@ -1,6 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import Form from "./components/Form";
+import ContactForm from "./components/ContactForm";
 import { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import "./fonts.css";
@@ -47,27 +47,35 @@ function App() {
           <Home offset={2} handleClick={handleClick} />
         </ParallaxLayer>
         <ParallaxLayer offset={0.99} speed={1.8}>
-          <div style={{padding: "50px"}}>
-          <h1>About</h1>
-          <div style={{display: "flex"}}>
-          <p>
-            Hey there! My name's Markus, and I've been providing lawn and snow
-            care in the Calgary area since 2017. Kona Care has grown much since
-            those early days, and the number of services offered has too. With
-            various lawn care services, including mowing, aeration, and more,
-            Kona Care will have your yard ready for summer. When winter rolls
-            around the corner, we provide snow removal services at a flat
-            monthly rate so that your property is accessible and safe. Kona Care
-            is fully licenced and insured, so you can rest assured that your
-            property is in good hands. Outside of my landscaping and snow
-            removal company, I'm either studying business administration at X
-            college or practising my game on the golf course!
-          </p>
-          <img
-        src={require("./images/puppy.png")}
-        style={{ width: "100%", height: "auto", maxWidth: "35vw" }}
-      />
-          </div>
+          <div style={{ padding: "50px" }}>
+            <h1>About</h1>
+            <div style={{ display: "flex", justifyContent: "space-around" }}>
+              <div style={{ fontSize: "1.5em", padding: '2%' }}>
+                <p>
+                  Hey there! My name's Markus, and I've been providing lawn and
+                  snow care in the Calgary area since 2017. Kona Care has grown
+                  much since those early days, and the number of services
+                  offered has too. With various lawn care services, including
+                  mowing, aeration, and more, Kona Care will have your yard
+                  looking show ready!
+                </p>
+                <p>
+                  When winter rolls around the corner, we provide snow removal
+                  services at a flat monthly rate so that your property is
+                  accessible and safe. Kona Care is fully licenced and insured,
+                  so you can rest assured that your property is in good hands.
+                </p>
+                <p>
+                  Outside of my landscaping and snow removal company, I'm
+                  studying business administration at college and hitting the
+                  golf course to work on my long game!
+                </p>
+              </div>
+              <img
+                src={require("./images/puppy.png")}
+                style={{ width: "100%", height: "auto", maxWidth: "35vw" }}
+              />
+            </div>
           </div>
           <Services />
         </ParallaxLayer>
@@ -83,7 +91,7 @@ function App() {
         </ParallaxLayer>
         <ParallaxLayer offset={1.5} speed={5} horizontal={true}>
           <div style={{ position: "absolute", bottom: 500, left: -1000 }}>
-            <Form />
+            <ContactForm />
           </div>
         </ParallaxLayer>
       </Parallax>
