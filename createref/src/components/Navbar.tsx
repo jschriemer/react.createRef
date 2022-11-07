@@ -44,7 +44,10 @@ const Navbar = () => {
   };
 
   return (
-    <AppBar position="absolute" style={{ background: "orange" }}>
+    <AppBar
+      position="absolute"
+      style={{ background: "transparent", boxShadow: "none" }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <a href="/">
@@ -53,7 +56,16 @@ const Navbar = () => {
               style={{ width: "50px", paddingRight: "20px" }}
             />
           </a>
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <ThemeProvider theme={theme}>
+          <Typography textAlign="center">KONA CARE</Typography>
+          </ThemeProvider>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "flex", md: "none" },
+              justifyContent: "flex-end",
+            }}
+          >
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -83,25 +95,30 @@ const Navbar = () => {
               }}
             >
               {pages.map((page) => (
-                
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <ThemeProvider theme={theme}>
-                  <Typography textAlign="center">{page}</Typography>
+                    <Typography textAlign="center">{page}</Typography>
                   </ThemeProvider>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "flex-end",
+            }}
+          >
             {pages.map((page) => (
               <ThemeProvider theme={theme}>
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block", mr: "10%" }}
+                >
+                  {page}
+                </Button>
               </ThemeProvider>
             ))}
           </Box>

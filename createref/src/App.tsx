@@ -4,7 +4,7 @@ import ContactForm from "./components/ContactForm";
 import { useRef } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import "./fonts.css";
-import background from "./images/backgroundlines.png";
+import background from "./images/homepage.png";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Services from "./components/Services";
@@ -89,8 +89,8 @@ function App() {
             <Footer offset={2} handleClick={handleClick} />
           </section>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.5} speed={5} horizontal={true}>
-          <div style={{ position: "absolute", bottom: 500, left: -1000 }}>
+        <ParallaxLayer offset={1.2} speed={5} horizontal={true}>
+          <div style={{ position: "absolute", bottom: 500, left: -1900 }}>
             <ContactForm />
           </div>
         </ParallaxLayer>

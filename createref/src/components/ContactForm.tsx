@@ -107,8 +107,8 @@ const formFields = [
     ),
   },
   {
-    size: 24,
-    field: <TextField name="message" multiline label="Message" margin="none" />,
+    size: 12,
+    field: <TextField name="message" multiline label="Message" margin="none" rows={4} required={true}/>,
   },
 ];
 
@@ -117,31 +117,18 @@ export default function ContactForm() {
     <div style={{ padding: 16, margin: "auto", maxWidth: 600 }}>
       <CssBaseline />
       <Typography variant="h4" align="center" component="h1" gutterBottom>
-        <span role="img" aria-label="flag">
-          🏁
+        <span role="img" aria-label="wave">
+        👋
         </span>{" "}
-        React Final Form
-      </Typography>
-      <Typography variant="h5" align="center" component="h2" gutterBottom>
-        Material-UI Example
-      </Typography>
-      <Typography paragraph>
-        <Link href="https://github.com/erikras/react-final-form#-react-final-form">
-          Read Docs
-        </Link>
-        . This example demonstrates using{" "}
-        <Link href="https://material-ui.com/demos/text-fields/">
-          Material-UI
-        </Link>{" "}
-        form controls.
+        Lets Get in Touch!
       </Typography>
       <Form
         onSubmit={onSubmit}
         initialValues={{ employed: true, stooge: "larry" }}
         validate={validate}
-        render={({ handleSubmit, submitting, pristine, values }) => (
+        render={({ handleSubmit, submitting }) => (
           <form onSubmit={handleSubmit} noValidate>
-            <Paper style={{ padding: 16 }}>
+            <Paper style={{ padding: 16, background: 'transparent', boxShadow: 'none' }}>
               <Grid container alignItems="flex-start" spacing={2}>
                 {formFields.map((item, idx) => (
                   <Grid item xs={item.size} key={idx}>
@@ -160,7 +147,6 @@ export default function ContactForm() {
                 </Grid>
               </Grid>
             </Paper>
-            <pre>{JSON.stringify(values, ['0'], 2)}</pre>
           </form>
         )}
       />

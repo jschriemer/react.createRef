@@ -76,45 +76,56 @@ export default function Footer(props: {
           </Typography>
           <BounceAnimation handleClick={props.handleClick} />
         </Box>
+        <div>
+          <Box
+            sx={{
+              flexGrow: 0.1,
+              justifyContent: "center",
+              display: "flex",
+              my: 1,
+            }}
+          >
+            <a
+              href="https://www.instagram.com/konacareyyc/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaInstagram
+                size={85}
+                style={{
+                  color: "white",
+                  padding: "20px",
+                  position: "relative",
+                  top: "40%",
+                }}
+              />
+            </a>
+            <a
+              href="https://www.facebook.com/KonaLawnGardenSnow/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaFacebook
+                size={85}
+                style={{
+                  color: "white",
+                  padding: "20px",
+                  position: "relative",
+                  top: "40%",
+                  marginRight: "20%",
+                }}
+              />
+            </a>
+          </Box>
+        </div>
         <Box
           sx={{
-            flexGrow: 1,
+            flexGrow: 0.1,
             justifyContent: "center",
             display: "flex",
             my: 1,
           }}
         >
-          <a
-            href="https://www.instagram.com/konacareyyc/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram
-              size={50}
-              style={{
-                color: "white",
-                padding: "10px",
-                position: "relative",
-                top: "40%",
-              }}
-            />
-          </a>
-          <a
-            href="https://www.facebook.com/KonaLawnGardenSnow/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebook
-              size={50}
-              style={{
-                color: "white",
-                padding: "10px",
-                position: "relative",
-                top: "40%",
-                marginRight: "20%",
-              }}
-            />
-          </a>
           <a href="/">
             <img
               src={require("../images/kona_care_logo.PNG")}
