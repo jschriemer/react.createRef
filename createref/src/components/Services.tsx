@@ -14,14 +14,20 @@ export default function Services() {
     <div
       style={{
         display: "flex",
-        justifyContent: "space-evenly",
+        flexDirection: "row",
+        justifyContent: "space-between",
         flexWrap: "wrap",
+        alignContent: "space-around",
+        backgroundColor: "#1D7874",
+        width: '80%',
+        padding: "20px",
+        borderRadius: "5px"
       }}
     >
       {images.map((img, i) => {
         return (
             <img
-              style={{ width: "20%" }}
+              style={{ width: "30%" }}
               src={img}
               alt={`Image number ${i}`}
             />

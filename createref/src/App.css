@@ -19,7 +19,7 @@ section {
   align-items: center;
   min-height: 550px;
   padding-top: 100px;
-  background: beige;
+  background: #D0C9B3;
 }
 
 .curve {
@@ -48,7 +48,7 @@ section {
   border-radius: 100% 50%;
   width: 55%;
   height: 100%;
-  background-color: beige;
+  background-color: #D0C9B3;
   transform: translate(-4%, 40%);
   z-index: -1;
 }
@@ -103,7 +103,7 @@ section {
 }
 
 .button-77:before {
-  background-color: rgba(249, 58, 19, .32);
+  background-color: #1D7874;
   content: "";
   display: block;
   height: 100%;
@@ -117,7 +117,7 @@ section {
 
 .button-77:after {
   background-color: initial;
-  background-image: linear-gradient(92.83deg, #ff7426 0, orange 100%);
+  background-image: linear-gradient(92.83deg, #1D7874 0, #A3BFA8 100%);
   bottom: 4px;
   content: "";
   display: block;

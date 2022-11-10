@@ -29,7 +29,7 @@ function App() {
       <Parallax
         ref={parallax}
         pages={2}
-        style={{ top: "0", left: "0", background: "beige" }}
+        style={{ top: "0", left: "0", background: "#D0C9B3" }}
       >
         <ParallaxLayer
           offset={0}
@@ -50,34 +50,55 @@ function App() {
           <div style={{ padding: "50px" }}>
             <h1>About</h1>
             <div style={{ display: "flex", justifyContent: "space-around" }}>
-              <div style={{ fontSize: "1.5em", padding: '2%' }}>
-                <p>
-                  Hey there! My name's Markus, and I've been providing lawn and
-                  snow care in the Calgary area since 2017. Kona Care has grown
-                  much since those early days, and the number of services
-                  offered has too. With various lawn care services, including
-                  mowing, aeration, and more, Kona Care will have your yard
-                  looking show ready!
-                </p>
-                <p>
+              <div style={{ fontSize: "1.5em", padding: "2%" }}>
+                <div style={{ padding: "30px" }}>
+                  My name's Markus, and I've been providing lawn and snow care
+                  in the Calgary area since 2017.{" "}
+                </div>
+                <div style={{ padding: "30px" }}>
+                  Kona Care has grown much since those early days, and the
+                  number of services offered has too.
+                </div>
+                <div style={{ padding: "30px" }}>
+                  With various lawn care services, including mowing, aeration,
+                  and more, Kona Care will have your yard looking show ready!
+                </div>
+
+                <div style={{ padding: "30px" }}>
                   When winter rolls around the corner, we provide snow removal
                   services at a flat monthly rate so that your property is
-                  accessible and safe. Kona Care is fully licenced and insured,
-                  so you can rest assured that your property is in good hands.
-                </p>
-                <p>
-                  Outside of my landscaping and snow removal company, I'm
-                  studying business administration at college and hitting the
-                  golf course to work on my long game!
-                </p>
+                  accessible and safe.{" "}
+                </div>
+                <div style={{ padding: "30px" }}>
+                  Kona Care is fully licenced and insured, so you can rest
+                  assured that your property is in good hands.
+                </div>
               </div>
-              <img
-                src={require("./images/puppy.png")}
-                style={{ width: "100%", height: "auto", maxWidth: "35vw" }}
-              />
+              <Services />
             </div>
+            <div
+              style={{
+                backgroundColor: "#D9D9D9",
+                position: "fixed",
+                left: "10%",
+                width: "80%",
+                marginTop: "50px",
+              }}
+            >
+              reviews here
+            </div>
+            <div
+          style={{
+            width: "1000px",
+            height: "200px",
+            position: "absolute",
+            right: "-500px",
+            background: "#FFA501",
+            borderRadius: "50%",
+            transform: "rotate(90deg)"
+          }}
+        />
           </div>
-          <Services />
         </ParallaxLayer>
         <ParallaxLayer
           style={{ backgroundColor: "orange" }}
@@ -89,8 +110,8 @@ function App() {
             <Footer offset={2} handleClick={handleClick} />
           </section>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.2} speed={5} horizontal={true}>
-          <div style={{ position: "absolute", bottom: 500, left: -1900 }}>
+        <ParallaxLayer offset={1.2} speed={2}>
+          <div style={{ position: "fixed", left: "20%", top: "-50%" }}>
             <ContactForm />
           </div>
         </ParallaxLayer>
