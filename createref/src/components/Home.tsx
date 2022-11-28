@@ -18,6 +18,7 @@ export default function Home(props: {
         <div>
           <Typography
             variant="h2"
+            
             style={{ textDecoration: "none", color: "#fff1db" }}
           >
             Calgary's top choice for quality landscaping and snow removal
