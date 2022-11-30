@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import ContactForm from "./components/ContactForm";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import "./fonts.css";
 import background from "./images/homepage.png";
@@ -9,14 +9,46 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Services from "./components/Services";
 import React from "react";
+import Reviews from "./components/Reviews";
+import About from "./components/AboutText";
+
+const USER_ID = process.env.REACT_APP_USER_KEY;
+const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_KEY;
+const SERVICES_ID = process.env.REACT_APP_SERVICES_KEY;
 
 function App() {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const parallax = useRef<IParallax>(null!);
 
   const handleClick = (offset: number) => {
     console.log("Scrolling to Bottom");
     parallax.current.scrollTo(offset);
   };
+
+  useEffect(() => {
+    console.log(window.innerWidth);
+    if (window.innerWidth > 900) {
+      setIsMobile(false);
+    } else if (window.innerWidth < 900) {
+      setIsMobile(true);
+    }
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      console.log(window.innerWidth);
+      if (window.innerWidth > 900) {
+        setIsMobile(false);
+      } else if (window.innerWidth < 900) {
+        setIsMobile(true);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div
@@ -44,61 +76,29 @@ function App() {
             backgroundSize: "cover",
           }}
         >
-          <Home offset={2} handleClick={handleClick} />
+          <Home offset={2} handleClick={handleClick} isMobile={isMobile} />
         </ParallaxLayer>
-        <ParallaxLayer offset={0.99} speed={1.8}>
-          <div style={{ padding: "50px" }}>
-            <h1>About</h1>
-            <div style={{ display: "flex", justifyContent: "space-around" }}>
-              <div style={{ fontSize: "1.5em", padding: "2%" }}>
-                <div style={{ padding: "30px" }}>
-                  My name's Markus, and I've been providing lawn and snow care
-                  in the Calgary area since 2017.{" "}
-                </div>
-                <div style={{ padding: "30px" }}>
-                  Kona Care has grown much since those early days, and the
-                  number of services offered has too.
-                </div>
-                <div style={{ padding: "30px" }}>
-                  With various lawn care services, including mowing, aeration,
-                  and more, Kona Care will have your yard looking show ready!
-                </div>
-
-                <div style={{ padding: "30px" }}>
-                  When winter rolls around the corner, we provide snow removal
-                  services at a flat monthly rate so that your property is
-                  accessible and safe.{" "}
-                </div>
-                <div style={{ padding: "30px" }}>
-                  Kona Care is fully licenced and insured, so you can rest
-                  assured that your property is in good hands.
-                </div>
-              </div>
-              <Services />
-            </div>
+        <ParallaxLayer offset={0.95} speed={1.8}>
+          {!isMobile ? (
             <div
               style={{
-                backgroundColor: "#D9D9D9",
-                position: "fixed",
-                left: "10%",
-                width: "80%",
-                marginTop: "50px",
+                display: "flex",
+                flexWrap: "wrap",
+                alignContent: "stretch",
               }}
             >
-              reviews here
+              <div>
+                <About isMobile={isMobile} />
+                <Reviews />
+              </div>
+              <Services isMobile={isMobile} />
             </div>
-            <div
-          style={{
-            width: "1000px",
-            height: "200px",
-            position: "absolute",
-            right: "-500px",
-            background: "#FFA501",
-            borderRadius: "50%",
-            transform: "rotate(90deg)"
-          }}
-        />
-          </div>
+          ) : (
+            <>
+              <About isMobile={isMobile} />
+              <Services isMobile={isMobile} />
+            </>
+          )}
         </ParallaxLayer>
         <ParallaxLayer
           style={{ backgroundColor: "orange" }}
@@ -106,14 +106,14 @@ function App() {
           speed={2}
         >
           <section>
-            <div className="curve"></div>
-            <Footer offset={2} handleClick={handleClick} />
+            <div className="curve"/>
+            <Footer offset={1} handleClick={handleClick} isMobile={isMobile} />
           </section>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.2} speed={2}>
-          <div style={{ position: "fixed", left: "20%", top: "-50%" }}>
-            <ContactForm />
-          </div>
+        <ParallaxLayer offset={1} speed={2}>
+          {/*<div style={{ position: "fixed", left: "20%", top: "-50%" }}>*/}
+          <ContactForm isMobile={isMobile} />
+          {/*</div>*/}
         </ParallaxLayer>
       </Parallax>
     </div>

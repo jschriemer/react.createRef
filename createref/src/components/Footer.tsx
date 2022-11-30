@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -52,10 +52,12 @@ function BounceAnimation(props: { handleClick: (offset: number) => void }) {
 export default function Footer(props: {
   offset: Number;
   handleClick: (offset: number) => void;
+  isMobile: boolean;
 }) {
+  console.log(props.isMobile)
   console.log(typeof props.handleClick);
   return (
-    <div style={{ position: "absolute", width: "100%", bottom: -150 }}>
+    <div style={{ position: "absolute", width: "100%", bottom: props.isMobile? -120 : -150 }}>
       <Container
         maxWidth="lg"
         style={{ display: "flex", justifyContent: "space-between" }}
@@ -72,16 +74,15 @@ export default function Footer(props: {
             color="white"
             style={{ position: "relative", top: "80%" }}
           >
-            Kona Care Landscaping ®
+            Kona Care Landscaping®
           </Typography>
-          <BounceAnimation handleClick={props.handleClick} />
+          {!props.isMobile && <BounceAnimation handleClick={props.handleClick} />}
         </Box>
-        <div>
           <Box
             sx={{
               flexGrow: 0.1,
               justifyContent: "center",
-              display: "flex",
+              display: "flex", 
               my: 1,
             }}
           >
@@ -91,10 +92,10 @@ export default function Footer(props: {
               rel="noopener noreferrer"
             >
               <FaInstagram
-                size={85}
+                size={props.isMobile? 70 : 85}
                 style={{
                   color: "white",
-                  padding: "20px",
+                  padding: props.isMobile? "10px" : "20px",
                   position: "relative",
                   top: "40%",
                 }}
@@ -106,10 +107,10 @@ export default function Footer(props: {
               rel="noopener noreferrer"
             >
               <FaFacebook
-                size={85}
+                size={props.isMobile? 70 : 85}
                 style={{
                   color: "white",
-                  padding: "20px",
+                  padding: props.isMobile? "10px" : "20px",
                   position: "relative",
                   top: "40%",
                   marginRight: "20%",
@@ -117,7 +118,6 @@ export default function Footer(props: {
               />
             </a>
           </Box>
-        </div>
         <Box
           sx={{
             flexGrow: 0.1,
