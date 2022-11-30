@@ -76,7 +76,6 @@ export default function Footer(props: {
           </Typography>
           <BounceAnimation handleClick={props.handleClick} />
         </Box>
-        <div>
           <Box
             sx={{
               flexGrow: 0.1,
@@ -117,7 +116,6 @@ export default function Footer(props: {
               />
             </a>
           </Box>
-        </div>
         <Box
           sx={{
             flexGrow: 0.1,

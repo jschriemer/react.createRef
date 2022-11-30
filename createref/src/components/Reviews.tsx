@@ -6,14 +6,14 @@ export default function Reviews() {
     <div
       style={{
         backgroundColor: "#D9D9D9",
-        width: "80%",
+        width: "60vw",
         borderRadius: "5px",
-        marginLeft: "10%",
-        marginTop: "10%"
+        marginLeft: "5vw",
+        marginTop: "5%"
       }}
     >
       <div style={{ display: "flex" }}>
-        <div className="numStars" style={{ display: "flex" }}>
+        <div className="numStars" style={{ display: "flex", marginLeft: "5%" }}>
           <p
             style={{
               marginRight: "10px",
@@ -45,9 +45,8 @@ export default function Reviews() {
             color: "#1D7874",
             fontSize: "2em",
             fontWeight: "500",
-            position: "absolute",
-            right: "50",
-            paddingRight: "5%",
+            paddingRight: "2%",
+            marginLeft: "10%",
             marginTop: "5%",
           }}
         >

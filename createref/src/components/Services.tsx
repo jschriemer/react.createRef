@@ -16,19 +16,20 @@ export default function Services() {
         display: "flex",
         justifyContent: "space-between",
         flexWrap: "wrap",
-        alignContent: "space-around",
+        position: "absolute",
+        right: 0,
+        alignItems: "center",
+        alignContent: "stretch",
         backgroundColor: "#1D7874",
-        marginLeft: "10%",
-        width: "80%",
-        padding: "20px",
+        marginLeft: "5%",
+        width: "30%",
+        padding: "10px",
         borderRadius: "5px",
-        height: "80%",
-        minWidth: "70%",
       }}
     >
       {images.map((img, i) => {
         return (
-          <img style={{ width: "30%" }} src={img} alt={`Image number ${i}`} />
+          <img style={{ maxWidth: "50%", minWidth: "220px" }} src={img} alt={`Image number ${i}`} />
         );
       })}
     </div>

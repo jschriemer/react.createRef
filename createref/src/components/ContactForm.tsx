@@ -122,7 +122,7 @@ export default function ContactForm() {
       style={{
         padding: 16,
         margin: "auto",
-        maxWidth: 1000,
+        maxWidth: "65vw",
         background: "#D9D9D9",
         borderRadius: '5px'
       }}

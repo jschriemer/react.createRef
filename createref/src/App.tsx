@@ -12,6 +12,11 @@ import React from "react";
 import Reviews from "./components/Reviews";
 import About from "./components/AboutText";
 
+const USER_ID = process.env.REACT_APP_USER_KEY;
+const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_KEY;
+const SERVICES_ID = process.env.REACT_APP_SERVICES_KEY;
+
+
 function App() {
   const parallax = useRef<IParallax>(null!);
 
@@ -48,13 +53,13 @@ function App() {
         >
           <Home offset={2} handleClick={handleClick} />
         </ParallaxLayer>
-        <ParallaxLayer offset={0.99} speed={1.8}>
-          <div style={{display: "flex"}}>
-            <About />
+        <ParallaxLayer offset={0.95} speed={1.8}>
+          <div style={{display: "flex", flexWrap: 'wrap', alignContent: 'stretch'}}>
             <div>
-              <Services />
-              <Reviews />
+            <About />
+            <Reviews />
             </div>
+              <Services />
           </div>
         </ParallaxLayer>
         <ParallaxLayer
@@ -64,13 +69,13 @@ function App() {
         >
           <section>
             <div className="curve"></div>
-            <Footer offset={2} handleClick={handleClick} />
+            <Footer offset={1} handleClick={handleClick} />
           </section>
         </ParallaxLayer>
-        <ParallaxLayer offset={1.2} speed={2}>
-          <div style={{ position: "fixed", left: "20%", top: "-50%" }}>
+        <ParallaxLayer offset={1} speed={2}>
+          {/*<div style={{ position: "fixed", left: "20%", top: "-50%" }}>*/}
             <ContactForm />
-          </div>
+          {/*</div>*/}
         </ParallaxLayer>
       </Parallax>
     </div>

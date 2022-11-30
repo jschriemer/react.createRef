@@ -1,30 +1,51 @@
 import React from "react";
 import { createMuiTheme, ThemeProvider, Typography } from "@mui/material";
+import { styled } from "@mui/system";
+
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: ["Sora", "sans-serif"].join(","),
+  },
+});
+
+const Hello = styled(Typography)(
+  ({ theme }) => `
+  textDecoration: "none";
+  color: "#fff1db";
+  fontSize: "calc(100% + 2vw)";
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }`
+);
 
 export default function AboutText() {
-  const theme = createMuiTheme({
-    typography: {
-      fontFamily: ["Sora", "sans-serif"].join(","),
-    },
-  });
-
   return (
     <ThemeProvider theme={theme}>
-      <div style={{ backgroundColor: "orange", borderRadius: "5px", width: "500em" }}>
-        <div style={{ display: "flex", justifyContent: "space-around", width: "100%", padding: "10%" }}>
-          <div style={{ fontSize: "2vw", padding: "2%", color: "#fff1db", }}>
+      <div
+        style={{
+          backgroundColor: "orange",
+          borderRadius: "5px",
+          width: "65vw",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            width: "100%",
+            padding: "2%",
+          }}
+        >
+          <div style={{ fontSize: "2vw", padding: "2%", color: "#fff1db" }}>
             <div style={{ padding: "30px" }}>
-              <Typography
-                variant="h3"
-                style={{ textDecoration: "none", color: "#fff1db" }}
-              >
+              <Hello variant="h4">
                 My name's Markus, and I've been providing lawn and snow care in
                 the Calgary area since 2017.{" "}
-              </Typography>
+              </Hello>
             </div>
             <div style={{ padding: "30px" }}>
               <Typography
-                variant="h4"
+                variant="h5"
                 style={{ textDecoration: "none", color: "#fff1db" }}
               >
                 Kona Care has grown much since those early days, and the number
@@ -33,7 +54,7 @@ export default function AboutText() {
             </div>
             <div style={{ padding: "30px" }}>
               <Typography
-                variant="h4"
+                variant="h5"
                 style={{ textDecoration: "none", color: "#fff1db" }}
               >
                 With various lawn care services, including mowing, aeration, and
@@ -43,7 +64,7 @@ export default function AboutText() {
 
             <div style={{ padding: "30px" }}>
               <Typography
-                variant="h4"
+                variant="h5"
                 style={{ textDecoration: "none", color: "#fff1db" }}
               >
                 When winter rolls around the corner, we provide snow removal
@@ -53,7 +74,7 @@ export default function AboutText() {
             </div>
             <div style={{ padding: "30px" }}>
               <Typography
-                variant="h4"
+                variant="h5"
                 style={{ textDecoration: "none", color: "#fff1db" }}
               >
                 Kona Care is fully licenced and insured, so you can rest assured
