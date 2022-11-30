@@ -112,35 +112,9 @@ const formFields = [
   },
 ];
 
-export default function ContactForm() {
-  const [isMobile, setIsMobile] = useState(false);
+export default function ContactForm(props: {isMobile: boolean}) {
 
-  useEffect(() => {
-    console.log(window.innerWidth);
-    if (window.innerWidth > 900) {
-      setIsMobile(false);
-    } else if (window.innerWidth < 900) {
-      setIsMobile(true);
-    }
-  });
-
-  useEffect(() => {
-    const handleResize = () => {
-      console.log(window.innerWidth);
-      if (window.innerWidth > 900) {
-        setIsMobile(false);
-      } else if (window.innerWidth < 900) {
-        setIsMobile(true);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  if (isMobile) {
+  if (props.isMobile) {
     return (
       <div
         style={{

@@ -1,7 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
 import ContactForm from "./components/ContactForm";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import "./fonts.css";
 import background from "./images/homepage.png";
@@ -16,14 +16,39 @@ const USER_ID = process.env.REACT_APP_USER_KEY;
 const TEMPLATE_ID = process.env.REACT_APP_TEMPLATE_KEY;
 const SERVICES_ID = process.env.REACT_APP_SERVICES_KEY;
 
-
 function App() {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const parallax = useRef<IParallax>(null!);
 
   const handleClick = (offset: number) => {
     console.log("Scrolling to Bottom");
     parallax.current.scrollTo(offset);
   };
+
+  useEffect(() => {
+    console.log(window.innerWidth);
+    if (window.innerWidth > 900) {
+      setIsMobile(false);
+    } else if (window.innerWidth < 900) {
+      setIsMobile(true);
+    }
+  });
+
+  useEffect(() => {
+    const handleResize = () => {
+      console.log(window.innerWidth);
+      if (window.innerWidth > 900) {
+        setIsMobile(false);
+      } else if (window.innerWidth < 900) {
+        setIsMobile(true);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   return (
     <div
@@ -51,16 +76,29 @@ function App() {
             backgroundSize: "cover",
           }}
         >
-          <Home offset={2} handleClick={handleClick} />
+          <Home offset={2} handleClick={handleClick} isMobile={isMobile} />
         </ParallaxLayer>
         <ParallaxLayer offset={0.95} speed={1.8}>
-          <div style={{display: "flex", flexWrap: 'wrap', alignContent: 'stretch'}}>
-            <div>
-            <About />
-            <Reviews />
+          {!isMobile ? (
+            <div
+              style={{
+                display: "flex",
+                flexWrap: "wrap",
+                alignContent: "stretch",
+              }}
+            >
+              <div>
+                <About isMobile={isMobile} />
+                <Reviews />
+              </div>
+              <Services isMobile={isMobile} />
             </div>
-              <Services />
-          </div>
+          ) : (
+            <>
+              <About isMobile={isMobile} />
+              <Services isMobile={isMobile} />
+            </>
+          )}
         </ParallaxLayer>
         <ParallaxLayer
           style={{ backgroundColor: "orange" }}
@@ -68,13 +106,13 @@ function App() {
           speed={2}
         >
           <section>
-            <div className="curve"></div>
-            <Footer offset={1} handleClick={handleClick} />
+            <div className="curve"/>
+            <Footer offset={1} handleClick={handleClick} isMobile={isMobile} />
           </section>
         </ParallaxLayer>
         <ParallaxLayer offset={1} speed={2}>
           {/*<div style={{ position: "fixed", left: "20%", top: "-50%" }}>*/}
-            <ContactForm />
+          <ContactForm isMobile={isMobile} />
           {/*</div>*/}
         </ParallaxLayer>
       </Parallax>

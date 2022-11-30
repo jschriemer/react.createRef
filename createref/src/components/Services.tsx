@@ -5,7 +5,7 @@ function importAll(r) {
   return r.keys().map(r);
 }
 
-export default function Services() {
+export default function Services(props: {isMobile: boolean}) {
   const images = importAll(
     require.context("../images/services", false, /\.(png|jpe?g|svg)$/)
   );
@@ -14,7 +14,7 @@ export default function Services() {
     <div
       style={{
         display: "flex",
-        justifyContent: "space-between",
+        justifyContent: props.isMobile ? "space-around" : "space-between",
         flexWrap: "wrap",
         position: "absolute",
         right: 0,
@@ -22,14 +22,14 @@ export default function Services() {
         alignContent: "stretch",
         backgroundColor: "#1D7874",
         marginLeft: "5%",
-        width: "30%",
+        width: props.isMobile ? "100%" : "30%",
         padding: "10px",
         borderRadius: "5px",
       }}
     >
       {images.map((img, i) => {
         return (
-          <img style={{ maxWidth: "50%", minWidth: "220px" }} src={img} alt={`Image number ${i}`} />
+          <img style={{ maxWidth: props.isMobile ? "32%" : "50%" }} src={img} alt={`Image number ${i}`} />
         );
       })}
     </div>

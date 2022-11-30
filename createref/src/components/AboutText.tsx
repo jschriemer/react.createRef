@@ -18,14 +18,14 @@ const Hello = styled(Typography)(
   }`
 );
 
-export default function AboutText() {
+export default function AboutText(props: {isMobile: boolean}) {
   return (
     <ThemeProvider theme={theme}>
       <div
         style={{
           backgroundColor: "orange",
           borderRadius: "5px",
-          width: "65vw",
+          width: props.isMobile ? "100%" : "65vw",
         }}
       >
         <div
