@@ -79,9 +79,10 @@ const Header = ({
                     border: 1,
                   }}
                 >
-                  {menuItems.map((menuItem) => (
+                  {menuItems.map((menuItem, index) => (
                     <Grid
                       item
+                      key={menuItem.title + index}
                       sx={{
                         borderColor: "white",
                         flex: 1,

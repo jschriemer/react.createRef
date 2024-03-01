@@ -1,6 +1,7 @@
 import "./App.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AppRoutes from "./AppRoutes";
+import { Grid } from "@mui/material";
 
 const theme = createTheme({
   palette: {
