@@ -4,6 +4,7 @@ import { Grid, Typography, IconButton, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { useIsMobile } from "../../utils/screenWidth";
+import KonaCareLogo from "../../assets/konacarelogo.svg";
 
 const Header = ({
   backgroundColor = "transparent",
@@ -31,16 +32,18 @@ const Header = ({
         alignItems: "center",
         p: 2,
         px: 4,
-        width: "100vw",
-        position: "relative",
+        width: "100%",
+        position: "fixed",
         py: isMobileDevice ? 4 : 0,
+        zIndex: 100,
+        fontFamily: "Futura",
       }}
     >
       {/* Logo */}
-      <Grid item>
-        <Typography variant="h6" color={fontColor}>
-          Logo
-        </Typography>
+      <Grid item sx={{ width: "100px" }}>
+        <Link to="/">
+          <img src={KonaCareLogo} style={{ marginTop: 10 }} alt="Kona Care" />
+        </Link>
       </Grid>
 
       {/* Menu Items or Hamburger Menu */}
@@ -84,7 +87,6 @@ const Header = ({
                       item
                       key={menuItem.title + index}
                       sx={{
-                        borderColor: "white",
                         flex: 1,
                         position: "relative",
                         backgroundColor: menuItem.backgroundColor,
@@ -122,11 +124,20 @@ const Header = ({
               justifyContent: "space-between",
               alignItems: "center",
               flexWrap: "nowrap",
+              mt: 2,
             }}
           >
             {menuItems.map((menuItem) => (
-              <Link key={menuItem.title} to={{ pathname: menuItem.route }}>
-                <Typography variant="overline">{menuItem.title}</Typography>
+              <Link
+                key={menuItem.title}
+                to={{ pathname: menuItem.route }}
+                style={{
+                  textDecoration: "none",
+                  color: "#fe914c",
+                  textTransform: "uppercase",
+                }}
+              >
+                <Typography variant="h4">{menuItem.title}</Typography>
               </Link>
             ))}
           </Grid>

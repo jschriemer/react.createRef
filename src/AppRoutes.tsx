@@ -8,14 +8,16 @@ import {
 } from "react-router-dom";
 import Landing from "./pages/Landing";
 import About from "./pages/About";
-import Extra from "./pages/Extra";
+import Contact from "./pages/Contact";
+import Services from "./pages/Services";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { Grid } from "@mui/material";
+import { ParallaxProvider } from "react-scroll-parallax";
 
 const menuItems = [
-  { title: "Home", route: "/", backgroundColor: "orange" },
   { title: "About", route: "/about", backgroundColor: "pink" },
+  { title: "Services", route: "/services", backgroundColor: "orange" },
   { title: "Contact", route: "/contact", backgroundColor: "hotpink" },
 ];
 
@@ -49,12 +51,15 @@ const AppContent = () => {
   return (
     <>
       <Grid item sx={{ backgroundColor: appBackgroundColor }}>
-        <Header menuItems={menuItems} backgroundColor={"transparent"} />
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Extra />} />
-        </Routes>
+        <Header menuItems={menuItems} backgroundColor={"transparent"} />{" "}
+        <ParallaxProvider>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </ParallaxProvider>
         <Footer backgroundColor={footerBackgroundColor} />
       </Grid>
     </>
