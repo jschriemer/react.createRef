@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { Box, Grid, Typography, TextField, Button } from "@mui/material";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
+import Footer from "../../components/Footer";
 
 function Contact() {
   const isMobileDevice = useIsMobile();
@@ -15,7 +16,7 @@ function Contact() {
     message: "",
   });
 
-  const handleChange = (e: { target: { name: any; value: any; }; }) => {
+  const handleChange = (e: { target: { name: any; value: any } }) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -52,16 +53,16 @@ function Contact() {
       sx={{
         flexDirection: "column",
         alignItems: "center",
-        minHeight: "100vh",
-        height: isMobileDevice || isTabletDevice ? "100%" : "100vh",
+        //height: isMobileDevice || isTabletDevice ? "100%" : "100vh",
         flexWrap: "nowrap",
         overflow: "auto",
         position: "relative",
         m: 0,
         p: 0,
+        backgroundColor: "#526F48",
       }}
     >
-      <Box>
+      <Box sx={{p: 10}}>
         <Typography variant="h4" gutterBottom>
           Contact Us
         </Typography>
@@ -114,6 +115,7 @@ function Contact() {
           </Button>
         </form>
       </Box>
+      <Footer backgroundColor={"#526F48"} fontColor={"white"} />
     </Grid>
   );
 }

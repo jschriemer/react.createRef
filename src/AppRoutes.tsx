@@ -1,5 +1,5 @@
 // AppRoutes.tsx
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -11,7 +11,6 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import { Grid } from "@mui/material";
 import { ParallaxProvider } from "react-scroll-parallax";
 
@@ -23,16 +22,14 @@ const menuItems = [
 
 const AppContent = () => {
   const [appBackgroundColor, setAppBackgroundColor] = useState("lightgrey");
-  const [footerBackgroundColor, setFooterBackgroundColor] =
-    useState("transparent");
   const location = useLocation();
+  const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     switch (location.pathname) {
       case "/":
         console.log("location.pathname", location.pathname);
         setAppBackgroundColor("lightgrey");
-        setFooterBackgroundColor("black");
         break;
       case "/about":
         console.log("location.pathname", location.pathname);
@@ -41,7 +38,6 @@ const AppContent = () => {
       case "/contact":
         console.log("location.pathname", location.pathname);
         setAppBackgroundColor("orange");
-        setFooterBackgroundColor("black");
         break;
       default:
         setAppBackgroundColor("white");
@@ -60,8 +56,8 @@ const AppContent = () => {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </ParallaxProvider>
-        <Footer backgroundColor={footerBackgroundColor} />
       </Grid>
+      <div ref={contactRef}></div>
     </>
   );
 };
