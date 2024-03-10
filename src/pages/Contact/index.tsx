@@ -62,7 +62,7 @@ function Contact() {
         backgroundColor: "#526F48",
       }}
     >
-      <Box sx={{p: 10}}>
+      <Box sx={{ p: 10, width: "50%" }}>
         <Typography variant="h4" gutterBottom>
           Contact Us
         </Typography>
@@ -115,7 +115,7 @@ function Contact() {
           </Button>
         </form>
       </Box>
-      <Footer backgroundColor={"#526F48"} fontColor={"white"} />
+      <Footer backgroundColor={"black"} fontColor={"white"} />
     </Grid>
   );
 }

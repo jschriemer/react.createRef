@@ -6,21 +6,21 @@ function App() {
   const theme = createTheme({
     palette: {
       background: {
-        default: "#F5F5F5",
-        paper: "#D8D4D5",
+        default: "#D3D3D3",
+        paper: "#fe914c",
       },
       text: {
-        primary: "#2A2B2A",
-        secondary: "#F5F5F5",
+        primary: "#F5F5F5",
+        secondary: "#F5F5F5" //"#2A2B2A",
       },
       primary: {
-        main: "#A26287",
+        main: "#F15A23",
       },
       secondary: {
-        main: "#C4C699",
+        main: "#266BBC",
       },
       info: {
-        main: "#453750",
+        main: "#526F48",
       },
     },
     typography: {
