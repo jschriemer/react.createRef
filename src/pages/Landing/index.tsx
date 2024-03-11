@@ -21,7 +21,7 @@ function Landing() {
   const isMobileDevice = useIsMobile();
   const isTabletDevice = useIsTablet();
 
- /*  const [scrollY, setScrollY] = useState(0);
+  /*  const [scrollY, setScrollY] = useState(0);
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -45,7 +45,7 @@ function Landing() {
 
   const descriptionParallax = useParallax<HTMLDivElement>({
     speed: 100,
-    //translateY: [-100, 100],
+    translateY: [40, 100],
   });
 
   return (
@@ -141,15 +141,15 @@ function Landing() {
             sx={{
               position: "absolute",
               left: "2%",
-              bottom: "23%",
-              zIndex: 1000,
+              bottom: isMobileDevice ? "30%" : "23%",
+              zIndex: 1,
               p: 2,
-              backdropFilter: "blur(10px)",
-              backgroundColor: "rgba(211, 211, 211,  0.9)",
+              //backdropFilter: "blur(10px)",
+              //backgroundColor: "rgba(211, 211, 211,  0.9)",
             }}
           >
             <Typography
-              variant="h5"
+              variant={isMobileDevice ? "h6" : "h5"}
               sx={{
                 maxWidth: "630px",
                 color: "black",

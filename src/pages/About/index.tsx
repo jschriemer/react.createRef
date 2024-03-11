@@ -26,20 +26,23 @@ function About() {
         xs={isMobileDevice ? 12 : 6} // Full width on mobile, half on desktop
         sx={{
           mt: "15%",
-          px: 10,
+          px: isMobileDevice ? 4 : 10,
           //padding: 2, // Adjust padding as needed
+          py: isMobileDevice ? 6 : 0,
         }}
       >
-        <Typography variant="h5" sx={{ maxWidth: "500px" }}>
-          Markus Saayman established Kona Care in 2018 With a focus for
-          landscaping, horticulture, year round maintenance including snow
-          removal, and much more.
+        <Typography
+          variant={isMobileDevice ? "body1" : "h5"}
+          sx={{ maxWidth: isMobileDevice ? "none" : "500px" }}
+        >
+          Kona Care has been providing landscaping, lawn care, and snow removal
+          services to the Calgary area since 2018.
         </Typography>
-        <Typography variant="h5" sx={{ mt: 6, maxWidth: "500px" }}>
+        <Typography variant={isMobileDevice ? "body1" : "h5"} sx={{ mt: 6, maxWidth: "500px" }}>
           Kona Care works with local nurseries to provide and plant native
           plants and trees that will last in Calgary’s climate.
         </Typography>
-        <Typography variant="h5" sx={{ mt: 6, maxWidth: "500px" }}>
+        <Typography variant={isMobileDevice ? "body1" : "h5"} sx={{ mt: 6, maxWidth: "500px" }}>
           Our goal is to provide exceptional work and deliver quality services.
           Contact us today and see what we can do for you.{" "}
         </Typography>

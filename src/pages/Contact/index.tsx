@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Box, Grid, Typography, TextField, Button } from "@mui/material";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
 import Footer from "../../components/Footer";
+import BackgroundImage from "../../assets/kona.png";
 
 function Contact() {
   const isMobileDevice = useIsMobile();
@@ -62,7 +63,20 @@ function Contact() {
         backgroundColor: "#526F48",
       }}
     >
-      <Box sx={{ p: 10, width: "50%" }}>
+      {/* background image behind content */}
+{/*       <img
+        alt="kona"
+        src={BackgroundImage}
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          width: "100%",
+          zIndex: 0,
+        }}
+      /> */}
+
+      <Box sx={{ py: 10, width: isMobileDevice ? "80%" : "50%", zIndex: 10 }}>
         <Typography variant="h4" gutterBottom>
           Contact Us
         </Typography>
@@ -110,7 +124,16 @@ function Contact() {
             fullWidth
             margin="normal"
           />
-          <Button variant="contained" color="primary" onClick={handleSubmit}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={handleSubmit}
+            sx={{
+              width: isMobileDevice ? "100%" : "auto",
+              height: isMobileDevice ? "50px" : "auto",
+              mt: isMobileDevice ? 2 : 0,
+            }}
+          >
             Send
           </Button>
         </form>

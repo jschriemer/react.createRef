@@ -51,6 +51,8 @@ const Header = ({
         item
         sx={{
           width: isMobileDevice ? "50px" : "50%",
+          height: "50px",
+          alignSelf: "center",
         }}
       >
         {isMobileDevice ? (
@@ -58,9 +60,18 @@ const Header = ({
             <IconButton
               onClick={toggleMenu}
               color="inherit"
-              sx={{ position: "absolute", zIndex: 100000 }}
+              sx={{
+                position: "absolute",
+                zIndex: 100000,
+                width: "50px",
+                height: "50px",
+              }}
             >
-              {isMenuOpen ? <CloseIcon /> : <MenuIcon />}
+              {isMenuOpen ? (
+                <MenuIcon sx={{ width: "40px", height: "40px" }} />
+              ) : (
+                <MenuIcon sx={{ width: "40px", height: "40px" }} />
+              )}
             </IconButton>
             <Drawer
               anchor="right"
@@ -79,7 +90,6 @@ const Header = ({
                   sx={{
                     flexDirection: "column",
                     height: "100vh",
-                    border: 1,
                   }}
                 >
                   {menuItems.map((menuItem, index) => (
@@ -92,25 +102,18 @@ const Header = ({
                         backgroundColor: menuItem.backgroundColor,
                       }}
                     >
-                      <Link
-                        key={menuItem.title}
-                        to={{ pathname: menuItem.route }}
-                        onClick={toggleMenu}
-                        style={{ textDecoration: "none" }}
+                      <Typography
+                        variant="h2"
+                        sx={{
+                          alignSelf: "flex-end",
+                          position: "absolute",
+                          bottom: 25,
+                          left: 25,
+                          color: "white",
+                        }}
                       >
-                        <Typography
-                          variant="h1"
-                          sx={{
-                            alignSelf: "flex-end",
-                            position: "absolute",
-                            bottom: 25,
-                            left: 25,
-                            color: "white",
-                          }}
-                        >
-                          {menuItem.title}
-                        </Typography>
-                      </Link>
+                        {menuItem.title}
+                      </Typography>
                     </Grid>
                   ))}
                 </Grid>

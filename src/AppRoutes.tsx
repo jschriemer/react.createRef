@@ -15,9 +15,9 @@ import { Grid } from "@mui/material";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 const menuItems = [
-  { title: "About", route: "/about", backgroundColor: "pink" },
-  { title: "Services", route: "/services", backgroundColor: "orange" },
-  { title: "Contact", route: "/contact", backgroundColor: "hotpink" },
+  { title: "Services", route: "/services", backgroundColor: "black" },
+  { title: "About", route: "/about", backgroundColor: "#266BBC" },
+  { title: "Contact", route: "/contact", backgroundColor: "#526F48" },
 ];
 
 const AppContent = () => {
