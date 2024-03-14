@@ -65,6 +65,7 @@ function Landing() {
         width: "100%",
       }}
     >
+      <section id="top" />
       {/* landing page contents */}
       <Grid
         item
@@ -182,12 +183,17 @@ function Landing() {
           />
         </Grid>
       </Grid>
-
       {/* other sections */}
       <Grid item>
-        <Services />
-        <About />
-        <Contact />
+        <section id="services">
+          <Services />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
       </Grid>
     </Grid>
   );

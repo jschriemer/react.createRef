@@ -1,63 +1,48 @@
-// AppRoutes.tsx
-import { useEffect, useRef, useState } from "react";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useLocation,
+  Navigate,
 } from "react-router-dom";
 import Landing from "./pages/Landing";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Services from "./pages/Services";
 import Header from "./components/Header";
 import { Grid } from "@mui/material";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 const menuItems = [
+  { title: "Home", route: "/top", backgroundColor: "#F15A23" },
   { title: "Services", route: "/services", backgroundColor: "black" },
   { title: "About", route: "/about", backgroundColor: "#266BBC" },
   { title: "Contact", route: "/contact", backgroundColor: "#526F48" },
 ];
 
 const AppContent = () => {
-  const [appBackgroundColor, setAppBackgroundColor] = useState("lightgrey");
-  const location = useLocation();
-  const contactRef = useRef<HTMLDivElement>(null);
+  const handleMenuItemClick = (route: string) => {
+    const element =
+      route === "/top"
+        ? document.documentElement
+        : document.getElementById(route.slice(1));
 
-  useEffect(() => {
-    switch (location.pathname) {
-      case "/":
-        console.log("location.pathname", location.pathname);
-        setAppBackgroundColor("lightgrey");
-        break;
-      case "/about":
-        console.log("location.pathname", location.pathname);
-        setAppBackgroundColor("green");
-        break;
-      case "/contact":
-        console.log("location.pathname", location.pathname);
-        setAppBackgroundColor("orange");
-        break;
-      default:
-        setAppBackgroundColor("white");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
-  }, [location]);
+  };
 
   return (
     <>
-      <Grid item sx={{ backgroundColor: appBackgroundColor }}>
-        <Header menuItems={menuItems} backgroundColor={"transparent"} />{" "}
+      <Grid item sx={{ backgroundColor: "lightgrey" }}>
+        <Header
+          menuItems={menuItems}
+          backgroundColor={"transparent"}
+          onItemClick={handleMenuItemClick}
+        />
         <ParallaxProvider>
           <Routes>
             <Route path="/" element={<Landing />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/contact" element={<Contact />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </ParallaxProvider>
       </Grid>
-      <div ref={contactRef}></div>
     </>
   );
 };

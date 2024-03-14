@@ -28,39 +28,15 @@ const Footer = ({ backgroundColor = "transparent", fontColor = "white" }) => {
       {isMobileDevice ? (
         <Grid item sx={{ width: "100%", px: 2, pt: 2 }}>
           <Grid container sx={{ flexDirection: "column" }}>
-            {/* rooted in calgary text */}
+            {/* rooted in calgary text and socials  */}
             <Grid item sx={{ mb: 1 }}>
               <Grid container sx={{ alignItems: "center", flexWrap: "nowrap" }}>
                 <Typography
                   variant="h6"
-                  sx={{ fontWeight: "0px", color: "#FE914C" }}
+                  sx={{ color: "#FE914C", maxWidth: "250px" }}
                 >
                   Established in 2018 and proudly rooted in Calgary.
                 </Typography>
-                <img
-                  src={GrowTogether}
-                  alt="Grow Together"
-                  style={{ width: "100px", height: "auto", marginLeft: 16 }}
-                />
-              </Grid>
-            </Grid>
-
-            {/* copyright and social media icons */}
-            <Grid item sx={{ width: "100%" }}>
-              <Grid
-                container
-                sx={{
-                  justfiyContent: "space-between",
-                  flexWrap: "nowrap",
-                }}
-              >
-                {/* copyright */}
-                <Grid item sx={{ alignSelf: "flex-end" }}>
-                  <Typography variant="caption" sx={{ fontWeight: "0px" }}>
-                    &copy; {new Date().getFullYear()} Kona Care Landscaping
-                  </Typography>
-                </Grid>
-
                 {/*  social media */}
                 <Grid item sx={{ ml: "auto" }}>
                   <a
@@ -81,6 +57,32 @@ const Footer = ({ backgroundColor = "transparent", fontColor = "white" }) => {
                     style={{ width: "35px", height: "35px", marginLeft: 16 }}
                   />
                 </Grid>
+              </Grid>
+            </Grid>
+
+            {/* copyright and Grow Together */}
+            <Grid item sx={{ width: "100%" }}>
+              <Grid
+                container
+                sx={{
+                  justfiyContent: "space-between",
+                  flexWrap: "nowrap",
+                }}
+              >
+                {/* copyright */}
+                <Grid item sx={{ alignSelf: "flex-end" }}>
+                  <Typography variant="caption" sx={{ fontWeight: "0px" }}>
+                    &copy; {new Date().getFullYear()} Kona Care Landscaping
+                  </Typography>
+                </Grid>
+                <img
+                  src={GrowTogether}
+                  alt="Grow Together"
+                  style={{
+                    height: "40px",
+                    marginLeft: "auto",
+                  }}
+                />
               </Grid>
             </Grid>
           </Grid>

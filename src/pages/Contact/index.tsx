@@ -63,20 +63,14 @@ function Contact() {
         backgroundColor: "#526F48",
       }}
     >
-      {/* background image behind content */}
-{/*       <img
-        alt="kona"
-        src={BackgroundImage}
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          width: "100%",
-          zIndex: 0,
+      <Box
+        sx={{
+          py: isMobileDevice ? 4 : 10,
+          mt: isMobileDevice ? 8 : 0,
+          width: isMobileDevice ? "80%" : "50%",
+          zIndex: 10,
         }}
-      /> */}
-
-      <Box sx={{ py: 10, width: isMobileDevice ? "80%" : "50%", zIndex: 10 }}>
+      >
         <Typography variant="h4" gutterBottom>
           Contact Us
         </Typography>
