@@ -1,11 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { useState, useEffect } from "react";
 import { Grid, Typography } from "@mui/material";
-import {
-  BannerLayer,
-  ParallaxBanner,
-  useParallax,
-} from "react-scroll-parallax";
+import { useParallax } from "react-scroll-parallax";
 import "react-social-icons/tiktok";
 import "react-social-icons/instagram";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
@@ -21,26 +16,13 @@ function Landing() {
   const isMobileDevice = useIsMobile();
   const isTabletDevice = useIsTablet();
 
-  /*  const [scrollY, setScrollY] = useState(0);
-
-  const handleScroll = () => {
-    setScrollY(window.scrollY);
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []); */
-
   const leafParallax = useParallax<HTMLDivElement>({
     speed: 100,
   });
 
   const textParallax = useParallax<HTMLDivElement>({
+    translateY: [40, 100],
     speed: 5,
-    //translateY: [-100, 100],
   });
 
   const descriptionParallax = useParallax<HTMLDivElement>({
@@ -54,9 +36,7 @@ function Landing() {
       sx={{
         flexDirection: "column",
         alignItems: "flex-start",
-        //minHeight: "100vh",
         justifyContent: "flex-start",
-        //height: isMobileDevice || isTabletDevice ? "100%" : "100vh",
         flexWrap: "nowrap",
         overflow: "clip",
         position: "relative",
@@ -84,88 +64,94 @@ function Landing() {
             flexWrap: "nowrap",
           }}
         >
-          {/* LEAVES */}
-          <Grid
-            component="div"
-            ref={leafParallax.ref}
-            item
-            sx={{
-              height: "30vh",
-              zIndex: 2, // Increase z-index to overlap other elements
-            }}
-          >
-            <img
-              src={Leaves}
-              alt="Leaves"
-              style={{ transform: "translateX(-2%) translateY(-2%)" }}
-            />
-          </Grid>
-
           {/* KONA CARE */}
           <Grid
             item
             ref={textParallax.ref}
             component="div"
             sx={{
-              zIndex: 10,
+              zIndex: 1,
               position: "absolute",
-              top: "15%",
+              top: isTabletDevice ? "5%" : "15%",
               width: "100%",
               ml: "2%" /* , position: "relative" */,
             }}
           >
             <Grid
               container
-              direction={isMobileDevice ? "column" : "row"}
-              justifyContent="center"
+              direction={"column"}
+              justifyContent={isTabletDevice ? "flex-start" : "center"}
               alignItems="center"
               sx={{
                 flexWrap: "nowrap",
                 width: "100%",
-                maxWidth: "97.5%",
+                maxWidth: "96%",
               }}
             >
-              <Grid item sx={{ flex: 1 }}>
+              <Grid item sx={{ width: "25%" }}>
                 <img src={KonaLogo} alt="Kona Logo" style={{ width: "100%" }} />
               </Grid>
 
-              <Grid item sx={{ flex: 1 }}>
+              <Grid item sx={{ width: "25%" }}>
                 <img src={CareLogo} alt="Care Logo" style={{ width: "100%" }} />
               </Grid>
             </Grid>
           </Grid>
 
-          {/* DESCRIPTION */}
+          {/* LEAVES */}
           <Grid
+            component="div"
+            ref={leafParallax.ref}
             item
-            ref={descriptionParallax.ref}
             sx={{
-              position: "absolute",
-              left: "2%",
-              bottom: isMobileDevice ? "30%" : "23%",
-              zIndex: 1,
-              p: 2,
-              //backdropFilter: "blur(10px)",
-              //backgroundColor: "rgba(211, 211, 211,  0.9)",
+              height: "100vh",
+              zIndex: 1000, // Increase z-index to overlap other elements
             }}
           >
-            <Typography
-              variant={isMobileDevice ? "h6" : "h5"}
+            <img
+              src={Leaves}
+              alt="Leaves"
+              style={{
+                transform:
+                  "translateX(-40%) translateY(-10%) rotateY(0deg) scale(1.2)",
+              }}
+            />
+          </Grid>
+
+          {/* DESCRIPTION */}
+          {!isTabletDevice && (
+            <Grid
+              item
+              ref={descriptionParallax.ref}
               sx={{
-                maxWidth: "630px",
-                color: "black",
-                textAlign: "left",
+                position: "absolute",
+                left: "25%",
+                bottom: isMobileDevice ? "30%" : "13%",
+                zIndex: 1000,
+                p: 2,
+                /* mixBlendMode: "difference", */
+                backdropFilter: "blur(10px)",
+                backgroundColor: "black",
               }}
             >
-              Calgary's best for lawn and snow. Providing{" "}
-              <span style={{ color: "#FE914C" }}>
-                landscape maintenance, horticulture
-              </span>
-              , and <span style={{ color: "#FE914C" }}>snow removal</span>.
-              Explore a diverse range of services provided to elevate your
-              outdoor spaces throughout the seasons.
-            </Typography>
-          </Grid>
+              <Typography
+                variant={isMobileDevice ? "h6" : "h5"}
+                sx={{
+                  maxWidth: "1030px",
+                  color: "lightgrey",
+                  textAlign: "left",
+                }}
+              >
+                Calgary's best for lawn and snow. Providing{" "}
+                <span style={{ color: "#FE914C" }}>
+                  landscape maintenance, horticulture
+                </span>
+                , and <span style={{ color: "#FE914C" }}>snow removal</span>.
+                Explore a diverse range of services provided to elevate your
+                outdoor spaces throughout the seasons.
+              </Typography>
+            </Grid>
+          )}
 
           {/* SKYLINE */}
           <img
@@ -173,27 +159,43 @@ function Landing() {
             alt="Calgary Skyline"
             style={{
               position: "absolute",
-              left: 0,
-              bottom: -10,
-              width: "100%",
+              left: -1,
+              bottom: 100,
+              width: "101%",
               height: "auto",
-              zIndex: 10,
+              zIndex: 100,
               filter: "contrast(0%) brightness(0%)",
+            }}
+          />
+          {/* black box right below skyline */}
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              bottom: 0,
+              width: "100%",
+              height: "120px",
+              backgroundColor: "black",
+              zIndex: 100,
             }}
           />
         </Grid>
       </Grid>
       {/* other sections */}
-      <Grid item>
-        <section id="services">
-          <Services />
-        </section>
-        <section id="about">
-          <About />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
+      <Grid item sx={{ width: "100%" }}>
+        <Grid container sx={{ flexDirection: "column", position: "relative" }}>
+          <Grid item sx={{ backgroundColor: "black" }}>
+            <section id="services">
+              <Services />
+            </section>
+          </Grid>
+          <section id="about">
+            <About />
+          </section>
+          <section id="contact">
+            <Contact />
+          </section>
+        </Grid>
       </Grid>
     </Grid>
   );

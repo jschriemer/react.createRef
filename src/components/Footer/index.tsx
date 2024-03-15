@@ -3,11 +3,10 @@ import GrowTogether from "../../assets/growTogether.png";
 import "react-social-icons/instagram";
 import "react-social-icons/facebook";
 import { SocialIcon } from "react-social-icons";
-import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
+import { useIsMobile } from "../../utils/screenWidth";
 
 const Footer = ({ backgroundColor = "transparent", fontColor = "white" }) => {
   const isMobileDevice = useIsMobile();
-  const isTabletDevice = useIsTablet();
 
   return backgroundColor === "transparent" ? (
     <></>

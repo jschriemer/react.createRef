@@ -13,20 +13,25 @@ function About() {
     <Grid
       container
       sx={{
-        flexDirection: isMobileDevice ? "column" : "row",
+        flexDirection: isMobileDevice || isTabletDevice ? "column" : "row",
         flexWrap: "nowrap",
         position: "relative",
         backgroundColor: "#266BBC",
+        overflow: "clip",
+        border: "none",
       }}
     >
       {/* Left side - Text */}
       <Grid
         item
-        xs={isMobileDevice ? 12 : 6}
         sx={{
           mt: "15%",
           px: isMobileDevice ? 4 : 10,
-          py: isMobileDevice ? 6 : 0,
+          py: isMobileDevice || isTabletDevice ? 6 : 0,
+          minWidth: isTabletDevice ? "400px" : "none",
+          backgroundColor: "#266BBC",
+          height: "100%",
+          zIndex: 100,
         }}
       >
         <Typography
@@ -53,12 +58,16 @@ function About() {
       </Grid>
 
       {/* Right side - Image Placeholder */}
-     
-        <img
-          src={AboutPhoto}
-          alt="About"
-          style={{ width: "100%", height: "100%", objectFit: "fill" }}
-        />
+
+      <img
+        src={AboutPhoto}
+        alt="About"
+        style={{
+          width: "100%",
+          height: isTabletDevice ? "700px" : "100%",
+          objectFit: "cover",
+        }}
+      />
     </Grid>
   );
 }

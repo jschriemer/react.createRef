@@ -1,21 +1,17 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1920px" height="1080px" viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#F15A24;stroke:#F15A24;stroke-miterlimit:10;}
-	.st1{fill:#D3D3D3;stroke:#000000;stroke-miterlimit:10;}
-	.st2{fill:#D3D3D3;stroke:#D3D3D3;stroke-miterlimit:10;}
-</style>
-<path class="st0" d="M30.62,1013.74h150.05c1.06,0.02,1.93-0.84,1.93-1.9l0.5-477.01c0-2.36,3.46-2.6,3.78-0.26l66.57,476.23
-	l463.84,0.95L238.54,464.91c-0.65-0.74-0.62-1.85,0.05-2.56L605.3,75.43l-348.57-0.86L187.46,488.2l-8.39-413.63H40.11l-3.78,434.16
-	"/>
-<polyline class="st0" points="1882.07,1012.55 1728.4,74.57 1597.33,74.57 1437.62,1012.55 1646.35,1012.55 1603.23,552.95 
-	1787.93,1012.55 "/>
-<polygon class="st0" points="692.38,74.57 324.72,468.86 551.6,747.64 1047.49,74.57 "/>
-<polygon class="st0" points="1172.75,74.58 1122.74,74.58 607.4,807.5 794.46,1013.74 1124.68,570.27 1381.09,1013.74 
-	1534.06,74.57 1310.52,74.58 1276.06,580.78 "/>
-<polyline class="st0" points="969.32,1013.74 1381.09,1013.74 1117.8,524.82 "/>
-<polygon class="st2" points="1654.68,176.2 1613.07,431.11 1706.61,514.68 "/>
-<polygon class="st2" points="749.99,176.2 691.34,409.32 453.99,488.2 "/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1851.95 941.13">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f15a24;
+        stroke: #f15a24;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M0,939.67h150.05c1.06.02,1.93-.84,1.93-1.9l.5-477.01c0-2.36,3.46-2.6,3.78-.26l66.57,476.23,463.84.95L207.92,390.84c-.65-.74-.62-1.85.05-2.56L574.68,1.36,226.11.5l-69.27,413.63L148.44.5H9.49l-3.78,434.16"/>
+  <polygon class="cls-1" points="1142.13 .5 1092.12 .5 576.78 733.42 763.84 939.67 1094.06 496.19 1350.47 939.67 1503.44 .5 1279.89 .5 1245.44 506.71 1142.13 .5"/>
+  <polyline class="cls-1" points="938.7 939.67 1350.47 939.67 1087.18 450.74"/>
+  <path class="cls-1" d="M1757.31,938.47l-184.7-459.6,43.11,459.6h-208.73L1566.71.5h131.07l153.67,937.97M1624.05,102.13l-41.6,254.9,93.54,83.57-51.94-338.48Z"/>
+  <path class="cls-1" d="M1016.87.5l-495.89,673.06-226.88-278.78L661.76.5h355.11ZM423.37,414.13l237.34-78.88,58.66-233.12-296,312Z"/>
 </svg>

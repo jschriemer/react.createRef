@@ -1,17 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Adobe Illustrator 24.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="1920px" height="1080px" viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill:#F15A24;stroke:#F15A24;stroke-miterlimit:10;}
-	.st1{fill:#D3D3D3;stroke:#D3D3D3;stroke-miterlimit:10;}
-	.st2{fill:#F15A24;stroke:#D3D3D3;stroke-miterlimit:10;}
-</style>
-<polyline class="st0" points="765,648 657,1008 864,1008 936,72 648,72 198,639 585,864 531,459 "/>
-<polygon class="st0" points="29.38,72 36,1008 612,1008 594,945 126,684 126,207 333,351 558,72 "/>
-<polygon class="st0" points="1431,72 1431,531 1440,837 1584,1008 1746,1008 1854,1008 1854,648 1575,792 1575,693 1575,558 
-	1575,504 1575,531 1854,594 1854,360 1575,396 1575,225 1575,162 1854,297 1854,72 "/>
-<polyline class="st1" points="722.08,147.14 648.1,284.41 810,414 810,207 "/>
-<polyline class="st2" points="981,72 918,1008 1089,1008 1043.31,492.1 1161,1008 1507.28,1008 1123.46,494.35 1404,495 1404,72 "/>
-<polyline class="st1" points="1023.26,176.13 1287,414 1296,171 "/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1825.62 937">
+  <defs>
+    <style>
+      .cls-1 {
+        stroke: #f15a24;
+      }
+
+      .cls-1, .cls-2 {
+        fill: #f15a24;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        stroke: #f15a24;
+      }
+    </style>
+  </defs>
+  <polygon class="cls-2" points=".5 .5 7.12 936.5 583.12 936.5 565.12 873.5 97.12 612.5 97.12 135.5 304.12 279.5 529.12 .5 .5 .5"/>
+  <polygon class="cls-2" points="1402.12 .5 1402.12 459.5 1411.12 765.5 1555.12 936.5 1717.12 936.5 1825.12 936.5 1825.12 576.5 1546.12 720.5 1546.12 621.5 1546.12 486.5 1546.12 432.5 1546.12 459.5 1825.12 522.5 1825.12 288.5 1546.12 324.5 1546.12 153.5 1546.12 90.5 1825.12 225.5 1825.12 .5 1402.12 .5"/>
+  <path class="cls-1" d="M1375.12.5v423l-280.54-.65,383.82,513.65h-346.28l-117.69-515.9,45.69,515.9h-171L952.12.5M994.38,104.63l263.74,237.87,9-243"/>
+  <path class="cls-2" d="M502.12,387.5l54,405-387-225L619.12.5h288l-72,936h-207l108-360M683.57,99.5l-117.71,192.74,187.85,132.96,47.57-325.7h-117.71Z"/>
 </svg>
