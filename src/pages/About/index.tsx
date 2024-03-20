@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Box, Grid, Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import "react-social-icons/tiktok";
 import "react-social-icons/instagram";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
@@ -59,15 +59,25 @@ function About() {
 
       {/* Right side - Image Placeholder */}
 
-      <img
-        src={AboutPhoto}
-        alt="About"
-        style={{
-          width: "100%",
-          height: isTabletDevice ? "700px" : "100%",
-          objectFit: "cover",
+      <Grid
+        item
+        sx={{
+          order: isMobileDevice || isTabletDevice ? 1 : 2, // Move image above text on mobile and tablet
+          width: "50%", // Take half of the screen width
+          height: "auto", // Automatically adjust height
+          maxWidth: isMobileDevice || isTabletDevice ? "none" : "50%", // No max width on mobile and tablet
         }}
-      />
+      >
+        <img
+          src={AboutPhoto}
+          alt="About"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+          }}
+        />
+      </Grid>
     </Grid>
   );
 }

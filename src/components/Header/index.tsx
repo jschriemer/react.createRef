@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import { Grid, Typography, IconButton, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useIsMobile } from "../../utils/screenWidth";
@@ -144,6 +143,10 @@ const Header = ({
                   textDecoration: "none",
                   color: "#fe914c",
                   textTransform: "uppercase",
+                  cursor: "pointer",
+                  "&:hover": {
+                    background: "#"
+                  },
                 }}
               >
                 <Typography variant="h4">{menuItem.title}</Typography>

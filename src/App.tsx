@@ -11,7 +11,7 @@ function App() {
       },
       text: {
         primary: "#F5F5F5",
-        secondary: "#F5F5F5" //"#2A2B2A",
+        secondary: "#F5F5F5", //"#2A2B2A",
       },
       primary: {
         main: "#F15A23",
@@ -21,6 +21,12 @@ function App() {
       },
       info: {
         main: "#526F48",
+      },
+      error: {
+        main: "#F15A23",
+      },
+      success: {
+        main: "#266BBC",
       },
     },
     typography: {

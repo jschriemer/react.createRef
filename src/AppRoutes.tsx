@@ -8,6 +8,7 @@ import Landing from "./pages/Landing";
 import Header from "./components/Header";
 import { Grid } from "@mui/material";
 import { ParallaxProvider } from "react-scroll-parallax";
+import Backgo from "./assets/backgo.svg";
 
 const menuItems = [
   { title: "Home", route: "/top", backgroundColor: "#F15A23" },
@@ -30,7 +31,12 @@ const AppContent = () => {
 
   return (
     <>
-      <Grid item sx={{ backgroundColor: "lightgrey" }}>
+      <Grid
+        item
+        sx={{
+          /* backgroundColor: "lightgrey" */ background: `linear-gradient(rgba(255,255,255,.0), rgba(0,0,0,.7)), url(${Backgo})`,
+        }}
+      >
         <Header
           menuItems={menuItems}
           backgroundColor={"transparent"}

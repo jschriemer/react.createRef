@@ -21,14 +21,15 @@ function Landing() {
   });
 
   const textParallax = useParallax<HTMLDivElement>({
-    translateY: [40, 100],
+    translateY: [isMobileDevice ? -120 : -350, 200],
     speed: 5,
   });
 
+  /*
   const descriptionParallax = useParallax<HTMLDivElement>({
     speed: 100,
-    translateY: [40, 100],
-  });
+    translateY: [50, 50],
+  }); */
 
   return (
     <Grid
@@ -88,11 +89,11 @@ function Landing() {
                 maxWidth: "96%",
               }}
             >
-              <Grid item sx={{ width: "25%" }}>
+              <Grid item sx={{ width: isMobileDevice ? "100%" : "25%" }}>
                 <img src={KonaLogo} alt="Kona Logo" style={{ width: "100%" }} />
               </Grid>
 
-              <Grid item sx={{ width: "25%" }}>
+              <Grid item sx={{ width: isMobileDevice ? "100%" : "25%" }}>
                 <img src={CareLogo} alt="Care Logo" style={{ width: "100%" }} />
               </Grid>
             </Grid>
@@ -104,7 +105,7 @@ function Landing() {
             ref={leafParallax.ref}
             item
             sx={{
-              height: "100vh",
+              height: isMobileDevice ? "45vh" : "100vh",
               zIndex: 1000, // Increase z-index to overlap other elements
             }}
           >
@@ -112,46 +113,45 @@ function Landing() {
               src={Leaves}
               alt="Leaves"
               style={{
-                transform:
-                  "translateX(-40%) translateY(-10%) rotateY(0deg) scale(1.2)",
+                transform: `translateX(${
+                  isMobileDevice ? "-14%" : "-10%"
+                }) translateY(-5%) rotateY(0deg) scale(1.2)`,
               }}
             />
           </Grid>
 
           {/* DESCRIPTION */}
-          {!isTabletDevice && (
-            <Grid
-              item
-              ref={descriptionParallax.ref}
+          <Grid
+            item
+            //ref={descriptionParallax.ref}
+            sx={{
+              position: "absolute",
+              left: isMobileDevice ? "0" : "25%",
+              bottom: isMobileDevice ? "0%" : "13%",
+              zIndex: 1000,
+              p: 2,
+              /* mixBlendMode: "difference", */
+              backdropFilter: "blur(10px)",
+              backgroundColor: "black",
+            }}
+          >
+            <Typography
+              variant={isMobileDevice ? "h6" : "h5"}
               sx={{
-                position: "absolute",
-                left: "25%",
-                bottom: isMobileDevice ? "30%" : "13%",
-                zIndex: 1000,
-                p: 2,
-                /* mixBlendMode: "difference", */
-                backdropFilter: "blur(10px)",
-                backgroundColor: "black",
+                maxWidth: "1030px",
+                color: "lightgrey",
+                textAlign: "left",
               }}
             >
-              <Typography
-                variant={isMobileDevice ? "h6" : "h5"}
-                sx={{
-                  maxWidth: "1030px",
-                  color: "lightgrey",
-                  textAlign: "left",
-                }}
-              >
-                Calgary's best for lawn and snow. Providing{" "}
-                <span style={{ color: "#FE914C" }}>
-                  landscape maintenance, horticulture
-                </span>
-                , and <span style={{ color: "#FE914C" }}>snow removal</span>.
-                Explore a diverse range of services provided to elevate your
-                outdoor spaces throughout the seasons.
-              </Typography>
-            </Grid>
-          )}
+              Calgary's best for lawn and snow. Providing{" "}
+              <span style={{ color: "#FE914C" }}>
+                landscape maintenance, horticulture
+              </span>
+              , and <span style={{ color: "#FE914C" }}>snow removal</span>.
+              Explore a diverse range of services provided to elevate your
+              outdoor spaces throughout the seasons.
+            </Typography>
+          </Grid>
 
           {/* SKYLINE */}
           <img
@@ -160,7 +160,7 @@ function Landing() {
             style={{
               position: "absolute",
               left: -1,
-              bottom: 100,
+              bottom: isMobileDevice ? 200 : 100,
               width: "101%",
               height: "auto",
               zIndex: 100,
@@ -174,7 +174,7 @@ function Landing() {
               left: 0,
               bottom: 0,
               width: "100%",
-              height: "120px",
+              height: isMobileDevice ? "210px" : "120px",
               backgroundColor: "black",
               zIndex: 100,
             }}
