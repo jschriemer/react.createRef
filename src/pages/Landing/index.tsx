@@ -11,6 +11,7 @@ import Leaves from "../../assets/leaves.webp";
 import Contact from "../Contact";
 import About from "../About";
 import Services from "../Services";
+import Footer from "../../components/Footer";
 
 function Landing() {
   const isMobileDevice = useIsMobile();
@@ -195,6 +196,7 @@ function Landing() {
           <section id="contact">
             <Contact />
           </section>
+          <Footer backgroundColor={"black"} fontColor={"white"} />
         </Grid>
       </Grid>
     </Grid>

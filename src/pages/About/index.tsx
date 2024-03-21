@@ -3,7 +3,27 @@ import { Grid, Typography } from "@mui/material";
 import "react-social-icons/tiktok";
 import "react-social-icons/instagram";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
-import AboutPhoto from "../../assets/about2.jpeg";
+//import AboutPhoto from "../../assets/about2.jpeg";
+import AboutProfile from "../../assets/aboutProfile.png";
+import About1 from "../../assets/about1.png";
+import About2 from "../../assets/about2.png";
+import About3 from "../../assets/about3.png";
+import Carousel from "../../components/Carousel";
+
+const images = [
+  {
+    id: 1,
+    src: About1,
+  },
+  {
+    id: 2,
+    src: About2,
+  },
+  {
+    id: 3,
+    src: About3,
+  },
+];
 
 function About() {
   const isMobileDevice = useIsMobile();
@@ -13,7 +33,7 @@ function About() {
     <Grid
       container
       sx={{
-        flexDirection: isMobileDevice || isTabletDevice ? "column" : "row",
+        flexDirection: "column",
         flexWrap: "nowrap",
         position: "relative",
         backgroundColor: "#266BBC",
@@ -21,54 +41,78 @@ function About() {
         border: "none",
       }}
     >
-      {/* Left side - Text */}
-      <Grid
-        item
-        sx={{
-          mt: "15%",
-          px: isMobileDevice ? 4 : 10,
-          py: isMobileDevice || isTabletDevice ? 6 : 0,
-          minWidth: isTabletDevice ? "400px" : "none",
-          backgroundColor: "#266BBC",
-          height: "100%",
-          zIndex: 100,
-        }}
-      >
-        <Typography
-          variant={isMobileDevice ? "body1" : "h5"}
-          sx={{ maxWidth: isMobileDevice ? "none" : "500px" }}
-        >
-          Kona Care has been providing landscaping, lawn care, and snow removal
-          services to the Calgary area since 2018.
-        </Typography>
-        <Typography
-          variant={isMobileDevice ? "body1" : "h5"}
-          sx={{ mt: 6, maxWidth: "500px" }}
-        >
-          Kona Care works with local nurseries to provide and plant native
-          plants and trees that will last in Calgary’s climate.
-        </Typography>
-        <Typography
-          variant={isMobileDevice ? "body1" : "h5"}
-          sx={{ mt: 6, maxWidth: "500px" }}
-        >
-          Our goal is to provide exceptional work and deliver quality services.
-          Contact us today and see what we can do for you.{" "}
-        </Typography>
-      </Grid>
+      <Grid item>
+        <Grid container sx={{ flexWrap: "nowrap" }}>
+          {/* Left side - Text */}
+          <Grid
+            item
+            sx={{
+              my: "15%",
+              px: isMobileDevice ? 4 : 10,
+              py: isMobileDevice || isTabletDevice ? 6 : 0,
+              minWidth: isTabletDevice ? "400px" : "none",
+              backgroundColor: "#266BBC",
+              height: "100%",
+              zIndex: 100,
+            }}
+          >
+            <Typography
+              variant={isMobileDevice ? "body1" : "h5"}
+              sx={{ maxWidth: isMobileDevice ? "none" : "500px" }}
+            >
+              Kona Care has been providing landscaping, lawn care, and snow
+              removal services to the Calgary area since 2018.
+            </Typography>
+            <Typography
+              variant={isMobileDevice ? "body1" : "h5"}
+              sx={{ mt: 6, maxWidth: "500px" }}
+            >
+              Kona Care works with local nurseries to provide and plant native
+              plants and trees that will last in Calgary’s climate.
+            </Typography>
+            <Typography
+              variant={isMobileDevice ? "body1" : "h5"}
+              sx={{ mt: 6, maxWidth: "500px" }}
+            >
+              Our goal is to provide exceptional work and deliver quality
+              services. Contact us today and see what we can do for you.{" "}
+            </Typography>
+          </Grid>
 
-      {/* Right side - Image Placeholder */}
+          {/* single image for desktop*/}
+          {!isMobileDevice && (
+            <Grid
+              item
+              sx={{
+                mt: "15%",
+                px: isMobileDevice ? 4 : 10,
+                py: isMobileDevice || isTabletDevice ? 6 : 0,
+              }}
+            >
+              <img
+                src={AboutProfile}
+                alt="About"
+                style={{
+                  width: "100%",
+                  height: "80%",
+                  maxHeight: "900px",
+                  objectFit: "cover",
+                }}
+              />
+            </Grid>
+          )}
+        </Grid>
 
-      <Grid
-        item
-        sx={{
-          order: isMobileDevice || isTabletDevice ? 1 : 2, // Move image above text on mobile and tablet
-          width: "50%", // Take half of the screen width
-          height: "auto", // Automatically adjust height
-          maxWidth: isMobileDevice || isTabletDevice ? "none" : "50%", // No max width on mobile and tablet
-        }}
-      >
-        <img
+        {/* bottom - Image Placeholder */}
+        <Grid
+          item
+          sx={{
+            width: "100%", // Take half of the screen width
+            height: "auto", // Automatically adjust height
+            maxWidth: isMobileDevice || isTabletDevice ? "none" : "none", // No max width on mobile and tablet
+          }}
+        >
+          {/*  <img
           src={AboutPhoto}
           alt="About"
           style={{
@@ -76,7 +120,45 @@ function About() {
             height: "100%",
             objectFit: "cover",
           }}
-        />
+        /> */}
+          {isMobileDevice ? (
+            <Carousel
+              sx={{ height: "100%", py: 3, px: 2 }}
+              fadeEdges={true}
+              carouselItems={images}
+              renderItem={(item: { id: number; src: string }, idx: number) => {
+                return (
+                  <img
+                    key={idx}
+                    src={item.src}
+                    alt="About"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      // Other styles here
+                    }}
+                  />
+                );
+              }}
+            />
+          ) : (
+            <Grid container sx={{ flexWrap: "nowrap" }}>
+              {images.map((image, idx) => (
+                <Grid item key={idx} xs={12} sm={6}>
+                  <img
+                    src={image.src}
+                    alt="About"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </Grid>
+              ))}
+            </Grid>
+          )}
+        </Grid>
       </Grid>
     </Grid>
   );

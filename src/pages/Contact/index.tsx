@@ -9,18 +9,14 @@ import {
   Alert,
 } from "@mui/material";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
-import Footer from "../../components/Footer";
-import BackgroundImage from "../../assets/kona.png";
+//import Footer from "../../components/Footer";
+//import BackgroundImage from "../../assets/kona.png";
 import Grow, { GrowProps } from "@mui/material/Grow";
 import CheckIcon from "@mui/icons-material/Check";
 import { JSX } from "react/jsx-runtime";
 
 interface FormErrors {
-  firstName?: boolean;
-  lastName?: boolean;
-  email?: boolean;
-  subject?: boolean;
-  message?: boolean;
+  [key: string]: boolean;
 }
 
 function Contact() {
@@ -141,6 +137,7 @@ function Contact() {
         m: 0,
         p: 0,
         backgroundColor: "#526F48",
+        height: "94vh",
       }}
     >
       <Box
@@ -199,7 +196,7 @@ function Contact() {
           <TextField
             label="Message"
             multiline
-            rows={4}
+            rows={8}
             name="message"
             value={formData.message}
             onChange={handleChange}
@@ -222,7 +219,6 @@ function Contact() {
           </Button>
         </form>
       </Box>
-      <Footer backgroundColor={"black"} fontColor={"white"} />
 
       <Snackbar
         open={snackbarOpen}
