@@ -4,7 +4,7 @@ import "react-social-icons/tiktok";
 import "react-social-icons/instagram";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
 //import AboutPhoto from "../../assets/about2.jpeg";
-import AboutProfile from "../../assets/aboutProfile.png";
+import AboutProfile from "../../assets/aboutProfile.jpeg";
 import About1 from "../../assets/about1.png";
 import About2 from "../../assets/about2.png";
 import About3 from "../../assets/about3.png";
@@ -42,12 +42,18 @@ function About() {
       }}
     >
       <Grid item>
-        <Grid container sx={{ flexWrap: "nowrap" }}>
+        <Grid
+          container
+          sx={{
+            flexWrap: "nowrap",
+            flexDirection: isMobileDevice ? "column" : "row",
+          }}
+        >
           {/* Left side - Text */}
           <Grid
             item
             sx={{
-              my: "15%",
+              my: "10%",
               px: isMobileDevice ? 4 : 10,
               py: isMobileDevice || isTabletDevice ? 6 : 0,
               minWidth: isTabletDevice ? "400px" : "none",
@@ -80,27 +86,25 @@ function About() {
           </Grid>
 
           {/* single image for desktop*/}
-          {!isMobileDevice && (
-            <Grid
-              item
-              sx={{
-                mt: "15%",
-                px: isMobileDevice ? 4 : 10,
-                py: isMobileDevice || isTabletDevice ? 6 : 0,
+          <Grid
+            item
+            sx={{
+              mt: isMobileDevice ? 2 : "10%",
+              px: isMobileDevice ? 4 : 10,
+              py: 0,
+            }}
+          >
+            <img
+              src={AboutProfile}
+              alt="About"
+              style={{
+                width: "100%",
+                height: "80%",
+                maxHeight: "900px",
+                objectFit: "cover",
               }}
-            >
-              <img
-                src={AboutProfile}
-                alt="About"
-                style={{
-                  width: "100%",
-                  height: "80%",
-                  maxHeight: "900px",
-                  objectFit: "cover",
-                }}
-              />
-            </Grid>
-          )}
+            />
+          </Grid>
         </Grid>
 
         {/* bottom - Image Placeholder */}

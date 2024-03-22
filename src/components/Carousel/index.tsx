@@ -32,18 +32,25 @@ export default function Carousel({
       }
     };
 
-    const handleArrowClick = (deltaX: number) => {
-      handleScroll(deltaX);
+    const handleArrowClick = (direction: number) => {
+      if (!ref.current) return;
+      const child = ref.current.children[0];
+      const childWidth = child ? child.getBoundingClientRect().width : 0;
+      if (scrollDirection === "horizontal") {
+        ref.current.scrollLeft += direction * childWidth;
+      } else {
+        ref.current.scrollTop += direction * childWidth;
+      }
     };
 
     if (leftRef.current && rightRef.current) {
       leftRef.current.addEventListener(
         "click",
-        () => handleArrowClick(-500) // Adjust the scroll speed as needed
+        () => handleArrowClick(-1) // Adjust the scroll speed as needed
       );
       rightRef.current.addEventListener(
         "click",
-        () => handleArrowClick(500) // Adjust the scroll speed as needed
+        () => handleArrowClick(1) // Adjust the scroll speed as needed
       );
     }
 

@@ -4,13 +4,19 @@ import { body, validationResult } from 'express-validator';
 import sgMail from '@sendgrid/mail';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { env } from 'node:process';
+import rateLimit from 'express-rate-limit';
+
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, 
+  max: 100, 
+});
 
 dotenv.config();
 
-
 const app = express();
 const port = 3001;
+
+app.use(limiter);
 
 app.use(cors({
   origin: 'http://localhost:5173',
@@ -40,7 +46,6 @@ const contactFormValidationRules = [
 
 // Contact route with validation and sanitization middleware
 app.post('/contact', contactFormValidationRules, async (req, res) => {
-  console.log("%%%")
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
@@ -49,21 +54,9 @@ app.post('/contact', contactFormValidationRules, async (req, res) => {
   const { firstName, lastName, email, subject, message } = req.body;
 
   try {
-    /* const msg = {
-      to: 'markus@konacare.ca',
-      from: email, // Use the sender's email address
-      subject: `${subject} [website contact]`,
-      html: `
-        <h4>${firstName} ${lastName}</h4>
-        <p><b>Email:</b> ${email}</p>
-        <h5>${subject}</h5>
-        <p><b>Message:</b> ${message}</p>
-      `,
-    }; */
-
     const msg = {
-      to: 'hello@jschtudio.com',
-      from: 'hello@jschtudio.com',
+      to: 'markus@konacare.ca',
+      from: 'markus@konacare.ca',
       subject: `${subject}`,
       html: `
         <b>Reply to: </b>${firstName} ${lastName} <b>|| email: </b>${email}
