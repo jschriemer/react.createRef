@@ -8,7 +8,7 @@ import {
   Snackbar,
   Alert,
 } from "@mui/material";
-import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
+import { useIsMobile } from "../../utils/screenWidth";
 //import Footer from "../../components/Footer";
 //import BackgroundImage from "../../assets/kona.png";
 import Grow, { GrowProps } from "@mui/material/Grow";
@@ -21,7 +21,6 @@ interface FormErrors {
 
 function Contact() {
   const isMobileDevice = useIsMobile();
-  const isTabletDevice = useIsTablet();
 
   const [formData, setFormData] = useState({
     firstName: "",

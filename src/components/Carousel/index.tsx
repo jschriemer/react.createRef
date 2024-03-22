@@ -23,14 +23,6 @@ export default function Carousel({
   const rightRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    const handleScroll = (deltaX: number) => {
-      if (!ref.current) return;
-      if (scrollDirection === "horizontal") {
-        ref.current.scrollLeft += deltaX;
-      } else {
-        ref.current.scrollTop += deltaX;
-      }
-    };
 
     const handleArrowClick = (direction: number) => {
       if (!ref.current) return;
