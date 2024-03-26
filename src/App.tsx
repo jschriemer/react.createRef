@@ -20,7 +20,7 @@ function App() {
         main: "#266BBC",
       },
       info: {
-        main: "#526F48",
+        main: "#F5F5F5",
       },
       error: {
         main: "#F15A23",

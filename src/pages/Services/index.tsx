@@ -62,7 +62,7 @@ function Services() {
         flexDirection: isMobileDevice ? "column" : "row",
         alignItems: "center",
         //minHeight: isTabletDevice ? "fit-content" : "60vh",
-        maxWidth: "80vw",
+        maxWidth: isMobileDevice ? "100vw" : "80vw",
         justifyContent: "center",
         height: isMobileDevice
           ? "100%"
@@ -74,7 +74,7 @@ function Services() {
         display: "grid",
         gridTemplateColumns: isMobileDevice ? "1fr" : "1fr 1fr",
         //gap: 0,
-        pl: isMobileDevice || isTabletDevice ? 2 : 0,
+        pl: isMobileDevice || isTabletDevice ? 0 : 0,
         py: isMobileDevice ? 10 : 0,
         mb: isMobileDevice ? 0 : 25,
         zIndex: 100,
@@ -91,7 +91,7 @@ function Services() {
                 padding: 2, // Adjust padding as needed
                 position: "relative",
                 height: isMobileDevice
-                  ? "340px"
+                  ? "fit-content"
                   : isTabletDevice
                   ? "450px"
                   : "300px",

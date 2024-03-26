@@ -22,9 +22,13 @@ function Landing() {
   });
 
   const textParallax = useParallax<HTMLDivElement>({
-    translateY: [isMobileDevice ? -120 : -350, 200],
+    translateY: [isMobileDevice ? -250 : isTabletDevice ? -200 : -350, 200],
     speed: 5,
   });
+
+  console.log(isMobileDevice);
+  console.log(isTabletDevice);
+  console.log("____");
 
   /*
   const descriptionParallax = useParallax<HTMLDivElement>({
@@ -90,11 +94,29 @@ function Landing() {
                 maxWidth: "96%",
               }}
             >
-              <Grid item sx={{ width: isMobileDevice ? "100%" : "25%" }}>
+              <Grid
+                item
+                sx={{
+                  width: isMobileDevice
+                    ? "100%"
+                    : isTabletDevice
+                    ? "60%"
+                    : "25%",
+                }}
+              >
                 <img src={KonaLogo} alt="Kona Logo" style={{ width: "100%" }} />
               </Grid>
 
-              <Grid item sx={{ width: isMobileDevice ? "100%" : "25%" }}>
+              <Grid
+                item
+                sx={{
+                  width: isMobileDevice
+                    ? "100%"
+                    : isTabletDevice
+                    ? "60%"
+                    : "25%",
+                }}
+              >
                 <img src={CareLogo} alt="Care Logo" style={{ width: "100%" }} />
               </Grid>
             </Grid>
@@ -114,6 +136,7 @@ function Landing() {
               src={Leaves}
               alt="Leaves"
               style={{
+                width: "100%",
                 transform: `translateX(${
                   isMobileDevice ? "-14%" : "-10%"
                 }) translateY(-5%) rotateY(0deg) scale(1.2)`,
@@ -128,7 +151,7 @@ function Landing() {
             sx={{
               position: "absolute",
               left: isMobileDevice ? "0" : "25%",
-              bottom: isMobileDevice ? "0%" : "13%",
+              bottom: isMobileDevice ? "0%" : isTabletDevice ? "5%" : "13%",
               zIndex: 1000,
               p: 2,
               /* mixBlendMode: "difference", */
@@ -161,7 +184,7 @@ function Landing() {
             style={{
               position: "absolute",
               left: -1,
-              bottom: isMobileDevice ? 200 : 100,
+              bottom: isMobileDevice ? 200 : isTabletDevice ? 300 : 100,
               width: "101%",
               height: "auto",
               zIndex: 100,
@@ -175,7 +198,11 @@ function Landing() {
               left: 0,
               bottom: 0,
               width: "100%",
-              height: isMobileDevice ? "210px" : "120px",
+              height: isMobileDevice
+                ? "210px"
+                : isTabletDevice
+                ? "320px"
+                : "120px",
               backgroundColor: "black",
               zIndex: 100,
             }}

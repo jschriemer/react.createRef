@@ -23,7 +23,6 @@ export default function Carousel({
   const rightRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-
     const handleArrowClick = (direction: number) => {
       if (!ref.current) return;
       const child = ref.current.children[0];
@@ -96,26 +95,26 @@ export default function Carousel({
               component={IconButton}
               sx={{
                 position: "absolute",
-                left: 0,
+                left: 10,
                 top: "50%",
-                transform: "translateY(-50%)",
+                transform: "translateY(-50%) scale(2)",
                 zIndex: 2,
               }}
             >
-              <ArrowBackIos />
+              <ArrowBackIos color={"info"} />
             </Box>
             <Box
               ref={rightRef}
               component={IconButton}
               sx={{
                 position: "absolute",
-                right: 0,
+                right: 10,
                 top: "50%",
-                transform: "translateY(-50%)",
+                transform: "translateY(-50%) scale(2)",
                 zIndex: 2,
               }}
             >
-              <ArrowForwardIos />
+              <ArrowForwardIos color={"info"} />
             </Box>
           </>
         )}

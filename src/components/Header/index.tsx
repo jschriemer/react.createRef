@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Grid, Typography, IconButton, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useIsMobile } from "../../utils/screenWidth";
+import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
 import KonaCareLogo from "../../assets/konacarelogo.svg";
 
 const Header = ({
@@ -16,6 +16,7 @@ const Header = ({
   onItemClick: (route: string) => void;
 }) => {
   const isMobileDevice = useIsMobile();
+  const isTabletDevice = useIsTablet();
   const [isMenuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -52,12 +53,12 @@ const Header = ({
       <Grid
         item
         sx={{
-          width: isMobileDevice ? "50px" : "50%",
+          width: isMobileDevice || isTabletDevice ? "50px" : "50%",
           height: "50px",
           alignSelf: "center",
         }}
       >
-        {isMobileDevice ? (
+        {isMobileDevice || isTabletDevice ? (
           <>
             <IconButton
               onClick={toggleMenu}
@@ -145,7 +146,7 @@ const Header = ({
                   textTransform: "uppercase",
                   cursor: "pointer",
                   "&:hover": {
-                    background: "#"
+                    background: "#",
                   },
                 }}
               >
