@@ -128,7 +128,11 @@ function Landing() {
             ref={leafParallax.ref}
             item
             sx={{
-              height: isMobileDevice ? "45vh" : "100vh",
+              height: isMobileDevice
+                ? "100vh"
+                : isTabletDevice
+                ? "85vh"
+                : "100vh",
               zIndex: 1000, // Increase z-index to overlap other elements
             }}
           >
@@ -136,10 +140,10 @@ function Landing() {
               src={Leaves}
               alt="Leaves"
               style={{
-                width: "100%",
+                width: isMobileDevice || isTabletDevice ? "110%" : "90%",
                 transform: `translateX(${
                   isMobileDevice ? "-14%" : "-10%"
-                }) translateY(-5%) rotateY(0deg) scale(1.2)`,
+                }) translateY(-5%) rotateY(0deg) scale(1)`,
               }}
             />
           </Grid>
