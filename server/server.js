@@ -14,7 +14,7 @@ const limiter = rateLimit({
 dotenv.config();
 
 const app = express();
-const port = 3001;
+const port = process.env.PORT || 3001; // Use the port provided by Heroku or default to 3001
 
 app.use(limiter);
 
