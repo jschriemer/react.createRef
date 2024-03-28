@@ -16,6 +16,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3001; // Use the port provided by Heroku or default to 3001
 
+app.set('trust proxy', true);
 app.use(limiter);
 
 app.use(cors({
