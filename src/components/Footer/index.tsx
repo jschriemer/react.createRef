@@ -104,21 +104,18 @@ const Footer = ({ backgroundColor = "transparent", fontColor = "white" }) => {
           <Grid item>
             <Grid container sx={{ alignItems: "center" }}>
               <Grid item sx={{ mr: 2 }}>
-                <a
-                  href="https://www.facebook.com/KonaLawnGardenSnow/"
+                <SocialIcon
+                  url="https://www.facebook.com/KonaLawnGardenSnow/"
+                  bgColor={"#526F48"}
                   target="_blank"
                   rel="noopener noreferrer"
-                >
-                  <SocialIcon
-                    url="https://www.facebook.com/KonaLawnGardenSnow/"
-                    bgColor={"#526F48"}
-                    style={{ width: "30px", height: "30px" }}
-                  />
-                </a>
-
+                  style={{ width: "30px", height: "30px" }}
+                />
                 <SocialIcon
-                  url="www.instagram.com"
+                  url="https://www.instagram.com/konacareyyc/?igsh=MWMxYnRrYnA2dGhhbQ%3D%3D"
                   bgColor={"#526F48"}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{ width: "30px", height: "30px", marginLeft: 16 }}
                 />
               </Grid>

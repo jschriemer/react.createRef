@@ -13,6 +13,7 @@ import { useIsMobile } from "../../utils/screenWidth";
 //import BackgroundImage from "../../assets/kona.png";
 import Grow, { GrowProps } from "@mui/material/Grow";
 import CheckIcon from "@mui/icons-material/Check";
+import CloudOffIcon from "@mui/icons-material/CloudOff";
 import { JSX } from "react/jsx-runtime";
 
 interface FormErrors {
@@ -75,13 +76,16 @@ function Contact() {
     }
 
     try {
-      const response = await fetch("http://localhost:3001/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://peaceful-headland-05243-68455389b8df.herokuapp.com/contact",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       const result = await response.json();
 
@@ -227,7 +231,13 @@ function Contact() {
         TransitionComponent={GrowTransition}
       >
         <Alert
-          icon={<CheckIcon fontSize="inherit" />}
+          icon={
+            snackbarSeverity === "error" ? (
+              <CloudOffIcon fontSize="inherit" />
+            ) : (
+              <CheckIcon fontSize="inherit" />
+            )
+          }
           onClose={handleCloseSnackbar}
           severity={snackbarSeverity}
           variant="filled"
