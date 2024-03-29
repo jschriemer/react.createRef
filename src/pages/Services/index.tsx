@@ -80,6 +80,11 @@ function Services() {
         color: "white",
       }}
     >
+      {isMobileDevice && (
+        <Typography variant="h3" sx={{ my: 2, ml: 2 }}>
+          Services
+        </Typography>
+      )}
       {Object.keys(seasonsObject).map((seasonKey: any, index: number) => {
         const key = seasonKey as "winter" | "spring" | "summer" | "fall";
         return (
