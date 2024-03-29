@@ -92,7 +92,8 @@ const Header = ({
                   container
                   sx={{
                     flexDirection: "column",
-                    height: "100vh",
+                    maxHeight: "100dvh",
+                    height: "100dvh",
                   }}
                 >
                   {menuItems.map((menuItem, index) => (

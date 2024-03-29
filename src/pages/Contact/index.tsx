@@ -140,7 +140,7 @@ function Contact() {
         m: 0,
         p: 0,
         backgroundColor: "#526F48",
-        height: isMobileDevice ? " 90vh" : "94vh",
+        height: isMobileDevice ? " 90dvh" : "94vh",
         overflowY: "clip",
         pb: isMobileDevice ? 10 : 0,
       }}
