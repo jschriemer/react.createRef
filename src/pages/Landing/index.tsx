@@ -26,10 +26,6 @@ function Landing() {
     speed: 5,
   });
 
-  console.log(isMobileDevice);
-  console.log(isTabletDevice);
-  console.log("____");
-
   /*
   const descriptionParallax = useParallax<HTMLDivElement>({
     speed: 100,
@@ -43,6 +39,7 @@ function Landing() {
         flexDirection: "column",
         alignItems: "flex-start",
         justifyContent: "flex-start",
+        fontFamily: "Futura",
         flexWrap: "nowrap",
         overflow: "clip",
         position: "relative",
@@ -141,6 +138,7 @@ function Landing() {
               alt="Leaves"
               style={{
                 width: isMobileDevice || isTabletDevice ? "110%" : "90%",
+                marginTop: isMobileDevice ? "-100px" : "0",
                 transform: `translateX(${
                   isMobileDevice ? "-14%" : "-10%"
                 }) translateY(-5%) rotateY(0deg) scale(1)`,
@@ -155,7 +153,7 @@ function Landing() {
             sx={{
               position: "absolute",
               left: isMobileDevice ? "0" : "25%",
-              bottom: isMobileDevice ? "0%" : isTabletDevice ? "5%" : "13%",
+              bottom: isMobileDevice ? "5%" : isTabletDevice ? "5%" : "13%",
               zIndex: 1000,
               p: 2,
               /* mixBlendMode: "difference", */

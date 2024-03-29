@@ -116,15 +116,6 @@ function About() {
             maxWidth: isMobileDevice || isTabletDevice ? "none" : "none", // No max width on mobile and tablet
           }}
         >
-          {/*  <img
-          src={AboutPhoto}
-          alt="About"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-          }}
-        /> */}
           {isMobileDevice ? (
             <Carousel
               sx={{ height: "100%", py: 3, px: 2 }}
