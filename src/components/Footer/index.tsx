@@ -38,22 +38,19 @@ const Footer = ({ backgroundColor = "transparent", fontColor = "white" }) => {
                 </Typography>
                 {/*  social media */}
                 <Grid item sx={{ ml: "auto" }}>
-                  <a
-                    href="https://www.facebook.com/KonaLawnGardenSnow/"
+                  <SocialIcon
+                    url="https://www.facebook.com/KonaLawnGardenSnow/"
+                    bgColor={"#526F48"}
                     target="_blank"
                     rel="noopener noreferrer"
-                  >
-                    <SocialIcon
-                      url="https://www.facebook.com/KonaLawnGardenSnow/"
-                      bgColor={"#526F48"}
-                      style={{ width: "35px", height: "35px" }}
-                    />
-                  </a>
-
+                    style={{ width: "30px", height: "30px" }}
+                  />
                   <SocialIcon
-                    url="www.instagram.com"
+                    url="https://www.instagram.com/konacareyyc/?igsh=MWMxYnRrYnA2dGhhbQ%3D%3D"
                     bgColor={"#526F48"}
-                    style={{ width: "35px", height: "35px", marginLeft: 16 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ width: "30px", height: "30px", marginLeft: 16 }}
                   />
                 </Grid>
               </Grid>

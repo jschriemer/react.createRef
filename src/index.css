@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Futura';
+  src: url('./assets/fonts/FuturaLT-Bold.woff2') format('woff2'),
+       url('./assets/fonts/FuturaLT-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
 * {
   border: none;
 }
@@ -58,7 +66,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
+    color: "white";
     background-color: #ffffff;
   }
   a:hover {

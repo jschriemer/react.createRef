@@ -61,7 +61,6 @@ function Services() {
       sx={{
         flexDirection: isMobileDevice ? "column" : "row",
         alignItems: "center",
-        //minHeight: isTabletDevice ? "fit-content" : "60vh",
         maxWidth: isMobileDevice ? "100vw" : "80vw",
         justifyContent: "center",
         height: isMobileDevice
@@ -73,12 +72,12 @@ function Services() {
         backgroundColor: "black",
         display: "grid",
         gridTemplateColumns: isMobileDevice ? "1fr" : "1fr 1fr",
-        //gap: 0,
-        pl: isMobileDevice || isTabletDevice ? 0 : 0,
-        py: isMobileDevice ? 10 : 0,
+        pl: 0,
+        py: isMobileDevice ? 0 : 0,
         mb: isMobileDevice ? 0 : 25,
         zIndex: 100,
         m: "auto",
+        color: "white",
       }}
     >
       {Object.keys(seasonsObject).map((seasonKey: any, index: number) => {
