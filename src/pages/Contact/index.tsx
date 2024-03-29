@@ -140,8 +140,9 @@ function Contact() {
         m: 0,
         p: 0,
         backgroundColor: "#526F48",
-        height: isMobileDevice ? "85vh" : "94vh",
+        height: isMobileDevice ? " 90vh" : "94vh",
         overflowY: "clip",
+        pb: isMobileDevice ? 10 : 0,
       }}
     >
       <Box
@@ -200,7 +201,7 @@ function Contact() {
           <TextField
             label="Message"
             multiline
-            rows={isMobileDevice ? 4 : 8}
+            rows={isMobileDevice ? 2 : 8}
             name="message"
             value={formData.message}
             onChange={handleChange}

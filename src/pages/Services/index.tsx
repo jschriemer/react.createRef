@@ -11,7 +11,7 @@ function Services() {
   const isTabletDevice = useIsTablet();
   const [isVisible, setIsVisible] = useState(false);
   const { ref, inView } = useInView({
-    threshold: 0.5,
+    threshold: isMobileDevice ? 0.1 : 0.5,
     triggerOnce: true,
   });
 
@@ -74,6 +74,7 @@ function Services() {
         gridTemplateColumns: isMobileDevice ? "1fr" : "1fr 1fr",
         pl: 0,
         py: isMobileDevice ? 0 : 0,
+        pb: isMobileDevice ? 10 : 0,
         mb: isMobileDevice ? 0 : 25,
         zIndex: 100,
         m: "auto",
