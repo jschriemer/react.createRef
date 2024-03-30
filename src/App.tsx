@@ -1,6 +1,7 @@
 import "./App.css";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import AppRoutes from "./AppRoutes";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const theme = createTheme({
@@ -50,6 +51,7 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
+      <Analytics />
       <AppRoutes />
     </ThemeProvider>
   );
