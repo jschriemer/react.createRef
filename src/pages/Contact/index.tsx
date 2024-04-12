@@ -17,6 +17,7 @@ import emailjs from "emailjs-com";
 
 const SERVICE_ID: string = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
 const TEMPLATE_ID: string = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
+const USER_ID: string = import.meta.env.VITE_EMAILJS_USER_ID || "";
 
 interface FormErrors {
   [key: string]: boolean;
@@ -34,8 +35,7 @@ function Contact() {
   });
 
   useEffect(() => {
-    // Initialize EmailJS with your user ID (API key)
-    emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID || "");
+    emailjs.init(USER_ID || "");
   }, []);
 
   const [errors, setErrors] = useState<FormErrors>({});
