@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Grid, Typography } from "@mui/material";
 import { useParallax } from "react-scroll-parallax";
 import "react-social-icons/tiktok";
@@ -25,12 +24,6 @@ function Landing() {
     translateY: [isMobileDevice ? -250 : isTabletDevice ? -200 : -350, 200],
     speed: 5,
   });
-
-  /*
-  const descriptionParallax = useParallax<HTMLDivElement>({
-    speed: 100,
-    translateY: [50, 50],
-  }); */
 
   return (
     <Grid

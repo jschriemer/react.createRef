@@ -1,29 +1,8 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Grid, Typography } from "@mui/material";
 import "react-social-icons/tiktok";
 import "react-social-icons/instagram";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
-//import AboutPhoto from "../../assets/about2.jpeg";
-import AboutProfile from "../../assets/aboutProfile.jpeg";
-import About1 from "../../assets/about1.png";
-import About2 from "../../assets/about2.png";
-import About3 from "../../assets/about3.png";
-import Carousel from "../../components/Carousel";
-
-const images = [
-  {
-    id: 1,
-    src: About1,
-  },
-  {
-    id: 2,
-    src: About2,
-  },
-  {
-    id: 3,
-    src: About3,
-  },
-];
+import AboutProfile from "../../assets/aboutProfile.webp";
 
 function About() {
   const isMobileDevice = useIsMobile();
@@ -102,57 +81,10 @@ function About() {
                 height: "80%",
                 maxHeight: "900px",
                 objectFit: "cover",
+                marginBottom: isMobileDevice ? "50px" : "none",
               }}
             />
           </Grid>
-        </Grid>
-
-        {/* bottom - Image Placeholder */}
-        <Grid
-          item
-          sx={{
-            width: "100%", // Take half of the screen width
-            height: "auto", // Automatically adjust height
-            maxWidth: isMobileDevice || isTabletDevice ? "none" : "none", // No max width on mobile and tablet
-          }}
-        >
-          {isMobileDevice ? (
-            <Carousel
-              sx={{ height: "100%", py: 3, px: 2 }}
-              fadeEdges={true}
-              carouselItems={images}
-              renderItem={(item: { id: number; src: string }, idx: number) => {
-                return (
-                  <img
-                    key={idx}
-                    src={item.src}
-                    alt="About"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      // Other styles here
-                    }}
-                  />
-                );
-              }}
-            />
-          ) : (
-            <Grid container sx={{ flexWrap: "nowrap" }}>
-              {images.map((image, idx) => (
-                <Grid item key={idx} xs={12} sm={6}>
-                  <img
-                    src={image.src}
-                    alt="About"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </Grid>
-              ))}
-            </Grid>
-          )}
         </Grid>
       </Grid>
     </Grid>

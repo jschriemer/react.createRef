@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Grid,
@@ -9,12 +9,14 @@ import {
   Alert,
 } from "@mui/material";
 import { useIsMobile } from "../../utils/screenWidth";
-//import Footer from "../../components/Footer";
-//import BackgroundImage from "../../assets/kona.png";
 import Grow, { GrowProps } from "@mui/material/Grow";
 import CheckIcon from "@mui/icons-material/Check";
 import CloudOffIcon from "@mui/icons-material/CloudOff";
 import { JSX } from "react/jsx-runtime";
+import emailjs from "emailjs-com";
+
+const SERVICE_ID: string = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
+const TEMPLATE_ID: string = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
 
 interface FormErrors {
   [key: string]: boolean;
@@ -30,6 +32,11 @@ function Contact() {
     subject: "",
     message: "",
   });
+
+  useEffect(() => {
+    // Initialize EmailJS with your user ID (API key)
+    emailjs.init(import.meta.env.VITE_EMAILJS_USER_ID || "");
+  }, []);
 
   const [errors, setErrors] = useState<FormErrors>({});
 
@@ -76,44 +83,20 @@ function Contact() {
     }
 
     try {
-      const response = await fetch(
-        "https://peaceful-headland-05243-68455389b8df.herokuapp.com/contact",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setSnackbarSeverity("success");
-        setSnackbarMessage(result.message);
-        setSnackbarOpen(true);
-        // Clear form fields
-        setFormData({
-          firstName: "",
-          lastName: "",
-          email: "",
-          subject: "",
-          message: "",
-        });
-      } else {
-        setSnackbarSeverity("error");
-        setSnackbarMessage(result.error);
-        setSnackbarOpen(true);
-        // Highlight the field that caused the error
-        const errorField = Object.keys(result.error)[0];
-        setErrors((prevErrors) => ({
-          ...prevErrors,
-          [errorField]: true,
-        }));
-      }
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, "#contact_form");
+      setSnackbarSeverity("success");
+      setSnackbarMessage("Email sent successfully");
+      setSnackbarOpen(true);
+      // Clear form fields
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        subject: "",
+        message: "",
+      });
     } catch (error) {
-      console.error("Error:", error);
+      console.error("Error sending email:", error);
       setSnackbarSeverity("error");
       setSnackbarMessage("Error sending email");
       setSnackbarOpen(true);
@@ -156,7 +139,7 @@ function Contact() {
         <Typography variant="h4" gutterBottom>
           Contact Us
         </Typography>
-        <form>
+        <form id="contact_form">
           <TextField
             label="First Name"
             name="firstName"

@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import GrowTogether from "../../assets/growTogether.png";
+import GrowTogether from "../../assets/growTogether.webp";
 import "react-social-icons/instagram";
 import "react-social-icons/facebook";
 import { SocialIcon } from "react-social-icons";
