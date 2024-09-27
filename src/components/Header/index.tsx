@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Grid, Typography, IconButton, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
@@ -18,33 +18,51 @@ const Header = ({
   const isMobileDevice = useIsMobile();
   const isTabletDevice = useIsTablet();
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Function to handle scroll event
+  const handleScroll = () => {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  };
+
+  useEffect(() => {
+    // Add scroll event listener when component mounts
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      // Clean up the scroll event listener when component unmounts
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const toggleMenu = () => {
     setMenuOpen(!isMenuOpen);
   };
 
+  const headerStyle = {
+    backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.7)" : "transparent",
+    backdropFilter: isScrolled ? "blur(10px)" : "none",
+    transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
+    color: fontColor,
+    justifyContent: "space-between",
+    alignItems: "center",
+    px: isMobileDevice ? 4 : 4,
+    width: "100%",
+    position: "fixed" as const,
+    zIndex: 10000,
+    fontFamily: "Futura",
+  };
+
   return (
-    <Grid
-      container
-      sx={{
-        backgroundColor,
-        color: fontColor,
-        justifyContent: "space-between",
-        alignItems: "center",
-        p: 2,
-        px: 4,
-        width: "100%",
-        position: "fixed",
-        py: isMobileDevice ? 4 : 0,
-        zIndex: 10000,
-        fontFamily: "Futura",
-      }}
-    >
+    <Grid container sx={headerStyle}>
       {/* Logo */}
       <Grid
         item
         onClick={() => onItemClick("/top")}
-        sx={{ width: "100px", zIndex: 1000000 }}
+        sx={{ width: "100px", zIndex: 1000000, cursor: "pointer" }}
       >
         <img src={KonaCareLogo} style={{ marginTop: 10 }} alt="Kona Care" />
       </Grid>
@@ -147,7 +165,7 @@ const Header = ({
                   textTransform: "uppercase",
                   cursor: "pointer",
                   "&:hover": {
-                    background: "#",
+                    color: "#F15A23",
                   },
                 }}
               >

@@ -10,7 +10,8 @@ import Leaves from "../../assets/leaves.webp";
 import Contact from "../Contact";
 import About from "../About";
 import Services from "../Services";
-import Footer from "../../components/Footer";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function Landing() {
   const isMobileDevice = useIsMobile();
@@ -24,6 +25,17 @@ function Landing() {
     translateY: [isMobileDevice ? -250 : isTabletDevice ? -200 : -350, 200],
     speed: 5,
   });
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state && location.state.scrollToId) {
+      const element = document.getElementById(location.state.scrollToId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location]);
 
   return (
     <Grid
@@ -218,7 +230,6 @@ function Landing() {
           <section id="contact">
             <Contact />
           </section>
-          <Footer backgroundColor={"black"} fontColor={"white"} />
         </Grid>
       </Grid>
     </Grid>

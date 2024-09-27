@@ -15,7 +15,7 @@ function About() {
         flexDirection: "column",
         flexWrap: "nowrap",
         position: "relative",
-        backgroundColor: "#266BBC",
+        backgroundColor: "black", //"#266BBC",
         overflow: "clip",
         border: "none",
       }}
@@ -36,7 +36,7 @@ function About() {
               px: isMobileDevice ? 4 : 10,
               py: isMobileDevice || isTabletDevice ? 6 : 0,
               minWidth: isTabletDevice ? "400px" : "none",
-              backgroundColor: "#266BBC",
+              //backgroundColor: "#266BBC",
               height: "100%",
               zIndex: 100,
             }}

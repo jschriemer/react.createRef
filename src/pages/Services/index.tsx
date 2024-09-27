@@ -73,7 +73,7 @@ function Services() {
         display: "grid",
         gridTemplateColumns: isMobileDevice ? "1fr" : "1fr 1fr",
         pl: 0,
-        py: isMobileDevice ? 0 : 0,
+        pt: isMobileDevice ? 0 : 6,
         pb: isMobileDevice ? 10 : 0,
         mb: isMobileDevice ? 0 : 25,
         zIndex: 100,

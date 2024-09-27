@@ -128,6 +128,11 @@ function Contact() {
         pb: isMobileDevice ? 10 : 0,
       }}
     >
+      <Box sx={{width: '100%', height: '50px', backgroundColor: '#266BBC'}}>
+        <Typography variant="h6" sx={{ my: 2, ml: 2 }}>
+          
+        </Typography>
+      </Box>
       <Box
         sx={{
           py: isMobileDevice ? 4 : 10,
