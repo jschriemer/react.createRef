@@ -26,7 +26,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
         px: 4,
         pt: 2,
         position: "relative",
-        borderTop: "4px solid white",
+        //borderTop: "4px solid #F7F7FF",
       }}
     >
       {/* <img
@@ -78,7 +78,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                         left: 0,
                         width: 0,
                         height: "1px",
-                        backgroundColor: "white",
+                        backgroundColor: "#F7F7FF",
                         transition: "width 0.3s ease-in-out",
                       },
                     }}
@@ -110,7 +110,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                         left: 0,
                         width: 0,
                         height: "1px",
-                        backgroundColor: "white",
+                        backgroundColor: "#F7F7FF",
                         transition: "width 0.3s ease-in-out",
                       },
                     }}
@@ -142,7 +142,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                         left: 0,
                         width: 0,
                         height: "1px",
-                        backgroundColor: "white",
+                        backgroundColor: "#F7F7FF",
                         transition: "width 0.3s ease-in-out",
                       },
                     }}
@@ -174,7 +174,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                         left: 0,
                         width: 0,
                         height: "1px",
-                        backgroundColor: "white",
+                        backgroundColor: "#F7F7FF",
                         transition: "width 0.3s ease-in-out",
                       },
                     }}
@@ -221,7 +221,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                         left: 0,
                         width: 0,
                         height: "1px",
-                        backgroundColor: "white",
+                        backgroundColor: "#F7F7FF",
                         transition: "width 0.3s ease-in-out",
                       },
                     }}
@@ -253,7 +253,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                         left: 0,
                         width: 0,
                         height: "1px",
-                        backgroundColor: "white",
+                        backgroundColor: "#F7F7FF",
                         transition: "width 0.3s ease-in-out",
                       },
                     }}
@@ -285,7 +285,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                         left: 0,
                         width: 0,
                         height: "1px",
-                        backgroundColor: "white",
+                        backgroundColor: "#F7F7FF",
                         transition: "width 0.3s ease-in-out",
                       },
                     }}
@@ -317,7 +317,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                         left: 0,
                         width: 0,
                         height: "1px",
-                        backgroundColor: "white",
+                        backgroundColor: "#F7F7FF",
                         transition: "width 0.3s ease-in-out",
                       },
                     }}
@@ -361,7 +361,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
           container
           justifyContent="space-between"
           sx={{
-            color: "white",
+            color: "#F7F7FF",
             padding: "8px",
             bottom: 0,
             width: "100%",

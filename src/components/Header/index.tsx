@@ -5,12 +5,10 @@ import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
 import KonaCareLogo from "../../assets/konacarelogo.svg";
 
 const Header = ({
-  backgroundColor = "transparent",
-  fontColor = "white",
+  fontColor = "#F7F7FF",
   menuItems = [],
   onItemClick,
 }: {
-  backgroundColor?: string;
   fontColor?: string;
   menuItems?: { title: string; route: string; backgroundColor: string }[];
   onItemClick: (route: string) => void;
@@ -43,7 +41,7 @@ const Header = ({
   };
 
   const headerStyle = {
-    backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.7)" : "transparent",
+    backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.4)" : "transparent",
     backdropFilter: isScrolled ? "blur(10px)" : "none",
     transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
     color: fontColor,
@@ -132,7 +130,7 @@ const Header = ({
                           position: "absolute",
                           bottom: 25,
                           left: 25,
-                          color: "white",
+                          color: "#F7F7FF",
                         }}
                       >
                         {menuItem.title}
@@ -150,7 +148,7 @@ const Header = ({
               justifyContent: "space-between",
               alignItems: "center",
               flexWrap: "nowrap",
-              mt: 2,
+              mt: 1,
             }}
           >
             {menuItems.slice(1).map((menuItem) => (

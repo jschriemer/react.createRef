@@ -12,7 +12,7 @@ function App() {
         paper: "#fe914c",
       },
       text: {
-        primary: "#F5F5F5",
+        primary: "#2A2B2A",
         secondary: "#F5F5F5", //"#2A2B2A",
       },
       primary: {
@@ -39,12 +39,23 @@ function App() {
       },
       h2: {
         fontFamily: "Futura",
+        fontWeight: "bold",
       },
       h3: {
         fontFamily: "Futura",
+        fontWeight: "bold",
+      },
+      h4: {
+        fontFamily: "Futura",
+        fontWeight: "bold",
       },
       h6: {
         fontFamily: "Futura",
+        fontSize: "16px",
+      },
+      body1: {
+        fontFamily: "Futura",
+        fontWeight: 300,
         fontSize: "16px",
       },
     },

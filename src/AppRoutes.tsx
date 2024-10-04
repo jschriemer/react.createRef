@@ -66,18 +66,14 @@ const AppContent = () => {
       <Grid
         item
         sx={{
-          /* backgroundColor: "lightgrey" */ background: `linear-gradient(rgba(255,255,255,.0), rgba(0,0,0,.7)), url(${Backgo})`,
+          background: `linear-gradient(rgba(255,255,255,.0), rgba(0,0,0,.7)), url(${Backgo})`,
         }}
       >
         <ScrollToTop />
-        <Header
-          menuItems={menuItems}
-          backgroundColor={"transparent"}
-          onItemClick={handleMenuItemClick}
-        />
+        <Header menuItems={menuItems} onItemClick={handleMenuItemClick} />
         <ParallaxProvider>
           <Routes>
-            <Route path="/" element={<Landing />} />
+            <Route path="/" element={<Landing onItemClick={handleMenuItemClick}/>} />
             <Route path="/termsOfService" element={<TermsOfService />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/accessibility" element={<Accessibility />} />

@@ -4,7 +4,7 @@ import "react-social-icons/instagram";
 import "react-social-icons/facebook";
 import { useIsMobile } from "../../utils/screenWidth";
 
-const LoadingAnimation = ({ fontColor = "white" }) => {
+const LoadingAnimation = ({ fontColor = "#F7F7FF" }) => {
   const isMobileDevice = useIsMobile();
 
   return (

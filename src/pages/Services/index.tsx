@@ -5,8 +5,9 @@ import { useInView } from "react-intersection-observer";
 import "react-social-icons/tiktok";
 import "react-social-icons/instagram";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
+import SnowflakeIcon from "@mui/icons-material/AcUnit";
 
-function Services() {
+function Services({ onItemClick }: { onItemClick: (route: string) => void }) {
   const isMobileDevice = useIsMobile();
   const isTabletDevice = useIsTablet();
   const [isVisible, setIsVisible] = useState(false);
@@ -78,7 +79,7 @@ function Services() {
         mb: isMobileDevice ? 0 : 25,
         zIndex: 100,
         m: "auto",
-        color: "white",
+        color: "#F7F7FF",
       }}
     >
       {isMobileDevice && (
@@ -115,9 +116,35 @@ function Services() {
                   //color: "black",
                 }}
               >
-                <Typography variant="h4" sx={{ zIndex: 10 }}>
-                  {seasonsObject[key].seasonName}
-                </Typography>
+                <Grid>
+                  <Grid
+                    container
+                    sx={{
+                      flexWrap: "nowrap",
+                      alignItems: "baseline",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <Typography variant="h4" sx={{ zIndex: 10 }}>
+                      {seasonsObject[key].seasonName}
+                    </Typography>
+                    {seasonKey === "winter" && (
+                      <Grid
+                        onClick={() => onItemClick("/#snow")}
+                        sx={{
+                          cursor: "pointer",
+                          textDecoration: "underline",
+                          textUnderlineOffset: "4px",
+                          '&:hover' :{
+                            color: "#266BBC",
+                          }
+                        }}
+                      >
+                        <SnowflakeIcon sx={{transform: 'translateY(4px)'}}/> 2024/2025 Winter Details
+                      </Grid>
+                    )}
+                  </Grid>
+                </Grid>
                 <Typography
                   variant={isTabletDevice || isMobileDevice ? "body1" : "h6"}
                   sx={{ maxWidth: "510px", mt: 2, zIndex: 1000 }}

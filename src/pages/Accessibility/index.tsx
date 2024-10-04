@@ -78,7 +78,7 @@ const Accessibility: React.FC = () => {
               <Link
                 href="mailto:markus@konacare.ca?subject=Accessibility"
                 sx={{
-                  color: "white",
+                  color: "#F7F7FF",
                   textDecoration: "underline",
                   textUnderlineOffset: "4px",
                   transition: "background-color 0.3s",

@@ -46,7 +46,8 @@ function About() {
               sx={{ maxWidth: isMobileDevice ? "none" : "500px" }}
             >
               Kona Care has been providing landscaping, lawn care, and snow
-              removal services to the Calgary area since 2018.
+              removal services to the Calgary area{" "}
+              <span style={{ color: "#fe914c" }}>since 2018</span>.
             </Typography>
             <Typography
               variant={isMobileDevice ? "body1" : "h5"}

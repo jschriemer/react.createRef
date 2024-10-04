@@ -12,8 +12,12 @@ import { useIsMobile } from "../../utils/screenWidth";
 import Grow, { GrowProps } from "@mui/material/Grow";
 import CheckIcon from "@mui/icons-material/Check";
 import CloudOffIcon from "@mui/icons-material/CloudOff";
-import { JSX } from "react/jsx-runtime";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
+import EmailIcon from "@mui/icons-material/Email";
 import emailjs from "emailjs-com";
+import calgary from "../../assets/calgary.png";
+import PhoneIcon from "@mui/icons-material/Phone";
+import Kona from "../../assets/konacarelogo.svg";
 
 const SERVICE_ID: string = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
 const TEMPLATE_ID: string = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
@@ -39,7 +43,6 @@ function Contact() {
   }, []);
 
   const [errors, setErrors] = useState<FormErrors>({});
-
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
   const [snackbarSeverity, setSnackbarSeverity] = useState<
@@ -53,7 +56,6 @@ function Contact() {
       [name]: value,
     }));
 
-    // Reset error for the field being changed
     setErrors((prevErrors) => ({
       ...prevErrors,
       [name]: false,
@@ -61,7 +63,6 @@ function Contact() {
   };
 
   const handleSubmit = async () => {
-    // Validate form fields
     const formErrors: FormErrors = {};
     let hasErrors = false;
 
@@ -87,7 +88,7 @@ function Contact() {
       setSnackbarSeverity("success");
       setSnackbarMessage("Email sent successfully");
       setSnackbarOpen(true);
-      // Clear form fields
+
       setFormData({
         firstName: "",
         lastName: "",
@@ -115,127 +116,267 @@ function Contact() {
     <Grid
       container
       sx={{
-        flexDirection: "column",
-        alignItems: "center",
-        flexWrap: "nowrap",
-        overflow: "auto",
-        position: "relative",
-        m: 0,
-        p: 0,
-        backgroundColor: "#526F48",
-        height: isMobileDevice ? " 90dvh" : "94vh",
         overflowY: "clip",
-        pb: isMobileDevice ? 10 : 0,
+        color: "black",
+        position: "relative",
+        pt: 2,
+        backgroundColor: 'black'
       }}
     >
-      <Box sx={{width: '100%', height: '50px', backgroundColor: '#266BBC'}}>
-        <Typography variant="h6" sx={{ my: 2, ml: 2 }}>
-          
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          py: isMobileDevice ? 4 : 10,
-          mt: isMobileDevice ? 8 : 0,
-          width: isMobileDevice ? "80%" : "50%",
-          zIndex: 10,
-        }}
-      >
-        <Typography variant="h4" gutterBottom>
-          Contact Us
-        </Typography>
-        <form id="contact_form">
-          <TextField
-            label="First Name"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            error={errors.firstName}
-            helperText={errors.firstName && "First name is required"}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Last Name"
-            name="lastName"
-            value={formData.lastName}
-            onChange={handleChange}
-            error={errors.lastName}
-            helperText={errors.lastName && "Last name is required"}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Email"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            error={errors.email}
-            helperText={errors.email && "Please enter a valid email address"}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Subject"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            error={errors.subject}
-            helperText={errors.subject && "Subject is required"}
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Message"
-            multiline
-            rows={isMobileDevice ? 2 : 8}
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            error={errors.message}
-            helperText={errors.message && "Message is required"}
-            fullWidth
-            margin="normal"
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleSubmit}
+      <Grid>
+        <Grid container sx={{ flexWrap: isMobileDevice ? "wrap" : "nowrap" }}>
+          {/* glass background card*/}
+          <Box
             sx={{
-              width: isMobileDevice ? "100%" : "auto",
-              height: isMobileDevice ? "50px" : "auto",
-              mt: isMobileDevice ? 2 : 0,
+              zIndex: 10,
+              px: 8,
+              py: 4,
+              //backgroundColor: "rgba(255, 255, 255, 0.9)",
+              //backdropFilter: "blur(5px)",
+              //borderRadius: 2,
+              color: "white",
+              
+             
+              height: "100%",
             }}
           >
-            Send
-          </Button>
-        </form>
-      </Box>
+            <Grid container sx={{ flexDirection: "column" }}>
+              <img
+                src={Kona}
+                alt="Kona Care Logo"
+                style={{
+                  width: isMobileDevice ? "100px" : "150px",
+                  transform: "translateX(-15px)",
+                }}
+              />
+              <Box display="flex" alignItems="center" mb={1} sx={{ mt: 0 }}>
+                <LocationOnIcon sx={{ mr: 1 }} />
+                <Typography variant="h6">Marda Loop, Calgary, AB</Typography>
+              </Box>
+              <Box display="flex" alignItems="center" mb={1} sx={{ mt: 1 }}>
+                <EmailIcon sx={{ mr: 1 }} />
+                <Typography
+                  variant="h6"
+                  component="a"
+                  href="mailto:markus@konacare.ca"
+                  sx={{ textDecoration: "none", color: "#F15A23" }}
+                >
+                  markus@konacare.ca
+                </Typography>
+              </Box>
+              <Box display="flex" alignItems="center" mb={2} sx={{ mt: 1 }}>
+                <PhoneIcon sx={{ mr: 1 }} />
+                <Typography
+                  variant="h6"
+                  sx={{ textDecoration: "none" }}
+                >
+                  587 889 8999
+                </Typography>
+              </Box>
+            </Grid>
+            <Grid
+              item
+              sx={{
+                height: "500px",
+                width: "400px",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "flex-start",
+                padding: isMobileDevice ? 2 : 8,
 
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-        message={snackbarMessage}
-        TransitionComponent={GrowTransition}
-      >
-        <Alert
-          icon={
-            snackbarSeverity === "error" ? (
-              <CloudOffIcon fontSize="inherit" />
-            ) : (
-              <CheckIcon fontSize="inherit" />
-            )
-          }
-          onClose={handleCloseSnackbar}
-          severity={snackbarSeverity}
-          variant="filled"
-          sx={{ width: "100%" }}
-        >
-          {snackbarMessage}
-        </Alert>
-      </Snackbar>
+                backgroundImage: `url(${calgary})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                //border: "1px solid #000",
+                borderRadius: 4,
+
+                //opacity: 0.5,
+              }}
+            ></Grid>
+          </Box>
+
+          {/* Right side with contact form */}
+          <Grid
+            item
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "#EEEEEE", //"#526F48",
+              padding: isMobileDevice ? 4 : 10,
+              zIndex: 1000,
+              width: "100%",
+              borderRadius: 4,
+              my: 4,
+            }}
+          >
+            <Box
+              sx={{
+                width: isMobileDevice ? "80%" : "100%",
+                zIndex: 10,
+              }}
+            >
+              <Typography variant="h4" gutterBottom>
+                Contact Us
+              </Typography>
+              <form id="contact_form">
+                <TextField
+                  label="First Name"
+                  name="firstName"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  error={errors.firstName}
+                  helperText={errors.firstName && "First name is required"}
+                  fullWidth
+                  margin="normal"
+                  sx={{
+                    color: "black",
+                    "& .MuiInputBase-root": {
+                      color: "black",
+                    },
+                    "& .MuiInputLabel-root": {
+                      color: "black",
+                    },
+                  }}
+                />
+                <TextField
+                  label="Last Name"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  error={errors.lastName}
+                  helperText={errors.lastName && "Last name is required"}
+                  fullWidth
+                  margin="normal"
+                  sx={{
+                    color: "black",
+                    "& .MuiInputBase-root": {
+                      color: "black",
+                    },
+                    "& .MuiInputLabel-root": {
+                      color: "black",
+                    },
+                  }}
+                />
+                <TextField
+                  label="Email"
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  error={errors.email}
+                  helperText={
+                    errors.email && "Please enter a valid email address"
+                  }
+                  fullWidth
+                  margin="normal"
+                  sx={{
+                    color: "black",
+                    "& .MuiInputBase-root": {
+                      color: "black",
+                    },
+                    "& .MuiInputLabel-root": {
+                      color: "black",
+                    },
+                  }}
+                />
+                <TextField
+                  label="Subject"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  error={errors.subject}
+                  helperText={errors.subject && "Subject is required"}
+                  fullWidth
+                  margin="normal"
+                  sx={{
+                    color: "black",
+                    "& .MuiInputBase-root": {
+                      color: "black",
+                    },
+                    "& .MuiInputLabel-root": {
+                      color: "black",
+                    },
+                  }}
+                />
+                <TextField
+                  label="Message"
+                  multiline
+                  rows={isMobileDevice ? 2 : 4}
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  error={errors.message}
+                  helperText={errors.message && "Message is required"}
+                  fullWidth
+                  margin="normal"
+                  sx={{
+                    color: "black",
+                    "& .MuiInputBase-root": {
+                      color: "black",
+                    },
+                    "& .MuiInputLabel-root": {
+                      color: "black",
+                    },
+                  }}
+                />
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSubmit}
+                  sx={{
+                    width: isMobileDevice ? "100%" : "auto",
+                    height: isMobileDevice ? "50px" : "auto",
+                    mt: isMobileDevice ? 2 : 0,
+                  }}
+                >
+                  Send
+                </Button>
+              </form>
+              
+            </Box>
+
+            <Snackbar
+              open={snackbarOpen}
+              autoHideDuration={6000}
+              onClose={handleCloseSnackbar}
+              message={snackbarMessage}
+              TransitionComponent={GrowTransition}
+            >
+              <Alert
+                icon={
+                  snackbarSeverity === "error" ? (
+                    <CloudOffIcon fontSize="inherit" />
+                  ) : (
+                    <CheckIcon fontSize="inherit" />
+                  )
+                }
+                onClose={handleCloseSnackbar}
+                severity={snackbarSeverity}
+                variant="filled"
+                sx={{ width: "100%" }}
+              >
+                {snackbarMessage}
+              </Alert>
+            </Snackbar>
+          </Grid>
+        </Grid>
+      </Grid>
+       {/* blue banner for snow removal contact */}
+       <Grid
+          item
+          sx={{
+            position: "absolute",
+            left: 0,
+            bottom: 0,
+            width: "100%",
+            height: isMobileDevice ? "210px" : "320px",
+            backgroundColor: "#F15A23",
+            zIndex: 1,
+          }}
+        />
+        
     </Grid>
   );
 }

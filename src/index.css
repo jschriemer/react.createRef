@@ -1,9 +1,30 @@
+/* Futura Bold */
 @font-face {
   font-family: 'Futura';
   src: url('./assets/fonts/FuturaLT-Bold.woff2') format('woff2'),
        url('./assets/fonts/FuturaLT-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
+}
+
+/* Futura Light */
+@font-face {
+  font-family: 'Futura';
+  src: url('./assets/fonts/FuturaLT-Light.otf') format('opentype');
+  font-weight: 300; /* Light weight */
+  font-style: normal;
+}
+
+/* Using Futura Bold */
+.bold-text {
+  font-family: 'Futura', sans-serif;
+  font-weight: bold;
+}
+
+/* Using Futura Light */
+.light-text {
+  font-family: 'Futura', sans-serif;
+  font-weight: 300;
 }
 
 * {
@@ -66,7 +87,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: "white";
+    color: "#F7F7FF";
     background-color: #ffffff;
   }
   a:hover {

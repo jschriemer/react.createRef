@@ -12,8 +12,9 @@ import About from "../About";
 import Services from "../Services";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import Snow from "../Snow";
 
-function Landing() {
+function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
   const isMobileDevice = useIsMobile();
   const isTabletDevice = useIsTablet();
 
@@ -221,9 +222,12 @@ function Landing() {
         <Grid container sx={{ flexDirection: "column", position: "relative" }}>
           <Grid item sx={{ backgroundColor: "black" }}>
             <section id="services">
-              <Services />
+              <Services onItemClick={onItemClick} />
             </section>
           </Grid>
+          <section id="snow">
+            <Snow onItemClick={onItemClick} />
+          </section>
           <section id="about">
             <About />
           </section>
