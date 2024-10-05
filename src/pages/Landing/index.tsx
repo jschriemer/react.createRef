@@ -108,7 +108,11 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
                     : "25%",
                 }}
               >
-                <img src={KonaLogo} alt="Kona Logo" style={{ width: "100%" }} />
+                <img
+                  src={KonaLogo}
+                  alt="Kona Logo"
+                  style={{ width: "100%", zIndex: 0 }}
+                />
               </Grid>
 
               <Grid
@@ -121,7 +125,11 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
                     : "25%",
                 }}
               >
-                <img src={CareLogo} alt="Care Logo" style={{ width: "100%" }} />
+                <img
+                  src={CareLogo}
+                  alt="Care Logo"
+                  style={{ width: "100%", zIndex: 0 }}
+                />
               </Grid>
             </Grid>
           </Grid>

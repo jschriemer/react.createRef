@@ -80,12 +80,12 @@ function Snow() {
           <Grid
             sx={{
               position: "absolute",
-              width: "310px",
-              height: "403px",
+              width: "323px",
+              height: "420px",
               backgroundImage: `url(${Shape})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
-              top: isMobileDevice || isTabletDevice ? "22%" : "15%",
+              top: isMobileDevice || isTabletDevice ? "20%" : "13%",
               right: isMobileDevice || isTabletDevice ? "4%" : "15%",
             }}
           >
@@ -95,15 +95,15 @@ function Snow() {
                 ml: 2,
                 mt: 4,
                 height: "300px",
-                width: "270px",
+                width: "300px",
                 color: "black",
-                p: 2,
+                p: 3,
               }}
             >
               <Typography variant="h5">Winter is coming!</Typography>
               <Typography
                 variant="h6"
-                sx={{ mt: 2, fontSize: "20px", fontWeight: 1 }}
+                sx={{ mt: 2, fontSize: "18px", fontWeight: 1 }}
               >
                 <span>Contact us</span> today to secure your spot for this
                 upcoming snow removal season and enjoy peace of mind knowing
@@ -113,7 +113,7 @@ function Snow() {
                 //mailto with subject snow removal
                 href="mailto:markus@konacare.ca?subject=Snow%20Removal%202024/2025%20Season"
                 variant="contained"
-                sx={{ mt: 1, backgroundColor: "#266BBC" }}
+                sx={{ mt: 4, backgroundColor: "#266BBC" }}
               >
                 Secure your spot
               </Button>

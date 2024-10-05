@@ -144,7 +144,7 @@ function Contact() {
                 justifyContent: "space-between",
               }}
             >
-              <Grid sx={{ height: isMobileDevice ? "220px" : "300px" }}>
+              <Grid sx={{ height: isMobileDevice ? "220px" : "300px", ml: 1}}>
                 <img
                   src={KonaLogo}
                   alt="Kona Logo"
@@ -383,17 +383,17 @@ function Contact() {
                 justifyContent: "space-between",
               }}
             >
-              <Grid sx={{ mb: 1 }}>
+              <Grid sx={{ mb: 1, ml: 2 }}>
                 <Grid container sx={{ flexWrap: "nowrap" }}>
                   <img
                     src={KonaLogo}
                     alt="Kona Logo"
-                    style={{ width: "120px" }}
+                    style={{ width: "125px" }}
                   />
                   <img
                     src={CareLogo}
                     alt="Care Logo"
-                    style={{ width: "120px", marginLeft: 2 }}
+                    style={{ width: "125px", marginLeft: 2 }}
                   />
                 </Grid>
               </Grid>

@@ -57,107 +57,123 @@ function Services({ onItemClick }: { onItemClick: (route: string) => void }) {
 
   return (
     <Grid
-      container
-      ref={ref}
-      sx={{
-        flexDirection: isMobileDevice ? "column" : "row",
-        alignItems: "center",
-        maxWidth: isMobileDevice ? "100vw" : "80vw",
-        justifyContent: "center",
-        height: isMobileDevice
-          ? "100%"
-          : isTabletDevice
-          ? "fit-content"
-          : "80vh",
-        position: "relative",
-        backgroundColor: "black",
-        display: "grid",
-        gridTemplateColumns: isMobileDevice ? "1fr" : "1fr 1fr",
-        pl: 0,
-        pt: isMobileDevice ? 0 : 6,
-        pb: isMobileDevice ? 10 : 0,
-        mb: isMobileDevice ? 0 : 25,
-        zIndex: 100,
-        m: isMobileDevice ? 0 : "auto",
-        color: "#F7F7FF",
-      }}
+      sx={{ backgroundColor: "black", position: "relative", zIndex: 10000 }}
     >
-      {isMobileDevice && (
-        <Typography variant="h3" sx={{ my: 2, ml: 2 }}>
-          Services
-        </Typography>
-      )}
-      {Object.keys(seasonsObject).map((seasonKey: any, index: number) => {
-        const key = seasonKey as "winter" | "spring" | "summer" | "fall";
-        return (
-          <animated.div key={index} style={fadeInAnimation}>
-            <Grid
-              item
-              sx={{
-                padding: 2, // Adjust padding as needed
-                position: "relative",
-                height: isMobileDevice
-                  ? "fit-content"
-                  : isTabletDevice
-                  ? "450px"
-                  : "300px",
-                maxWidth: isMobileDevice ? "100%" : "600px",
-              }}
-            >
+      <Typography
+        variant="h3"
+        sx={{
+          py: 2,
+          textAlign: "center",
+
+          height: "fit-content",
+          maxWidth: "80vw",
+          m: "auto",
+        }}
+      >
+        Year Round Service Offerings
+      </Typography>
+      <Grid
+        container
+        ref={ref}
+        sx={{
+          flexDirection: isMobileDevice ? "column" : "row",
+          alignItems: "center",
+          maxWidth: isMobileDevice ? "100vw" : "80vw",
+          justifyContent: "center",
+          height: isMobileDevice
+            ? "100%"
+            : isTabletDevice
+            ? "fit-content"
+            : "80vh",
+          position: "relative",
+          backgroundColor: "black",
+          display: "grid",
+          gridTemplateColumns: isMobileDevice ? "1fr" : "1fr 1fr",
+          pl: 0,
+          pt: isMobileDevice ? 0 : 4,
+          pb: isMobileDevice ? 10 : 0,
+          mb: isMobileDevice ? 0 : 25,
+          zIndex: 100,
+          m: isMobileDevice ? 0 : "auto",
+          color: "#F7F7FF",
+        }}
+      >
+        {Object.keys(seasonsObject).map((seasonKey: any, index: number) => {
+          const key = seasonKey as "winter" | "spring" | "summer" | "fall";
+          return (
+            <animated.div key={index} style={fadeInAnimation}>
               <Grid
-                container
+                item
                 sx={{
-                  flexDirection: "column",
-                  border: 2,
-                  borderRadius: 5,
-                  borderColor: seasonsObject[key].borderColor,
-                  width: "fit-content",
-                  p: 4,
-                  //backgroundColor: seasonsObject[key].borderColor,
-                  //color: "black",
+                  padding: 2, // Adjust padding as needed
+                  position: "relative",
+                  height: isMobileDevice
+                    ? "fit-content"
+                    : isTabletDevice
+                    ? "450px"
+                    : "300px",
+                  maxWidth: isMobileDevice ? "100%" : "600px",
                 }}
               >
-                <Grid>
-                  <Grid
-                    container
-                    sx={{
-                      flexDirection: (isMobileDevice || isTabletDevice) ? "column" : "row",
-                      flexWrap: "nowrap",
-                      alignItems: "baseline",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <Typography variant="h4" sx={{ zIndex: 10 }}>
-                      {seasonsObject[key].seasonName}
-                    </Typography>
-                    {seasonKey === "winter" && (
-                      <Grid
-                        onClick={() => onItemClick("/#snow")}
-                        sx={{
-                          cursor: "pointer",
-                          textDecoration: "underline",
-                          textUnderlineOffset: "4px",
-                          '&:hover' :{
-                            color: "#266BBC",
-                          }
-                        }}
-                      >
-                        <SnowflakeIcon sx={{transform: 'translateY(4px)'}}/> 2024/2025 Winter Details
-                      </Grid>
-                    )}
-                  </Grid>
-                </Grid>
-                <Typography
-                  variant={isTabletDevice || isMobileDevice ? "body1" : "h6"}
-                  sx={{ maxWidth: "510px", mt: 2, zIndex: 1000 }}
+                <Grid
+                  container
+                  sx={{
+                    flexDirection: "column",
+                    border: 2,
+                    borderRadius: 5,
+                    borderColor: seasonsObject[key].borderColor,
+                    width: "fit-content",
+                    p: 4,
+                    //backgroundColor: seasonsObject[key].borderColor,
+                    //color: "black",
+                  }}
                 >
-                  {seasonsObject[key].textDescription}
-                </Typography>
+                  <Grid>
+                    <Grid
+                      container
+                      sx={{
+                        flexDirection:
+                          isMobileDevice || isTabletDevice ? "column" : "row",
+                        flexWrap: "nowrap",
+                        alignItems: "baseline",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Typography variant="h4" sx={{ zIndex: 10 }}>
+                        {seasonsObject[key].seasonName}
+                      </Typography>
+                      {seasonKey === "winter" && (
+                        <Grid
+                          onClick={() => onItemClick("/#snow")}
+                          sx={{
+                            cursor: "pointer",
+                            textDecoration: "underline",
+                            textUnderlineOffset: "4px",
+                            "&:hover": {
+                              color: "#266BBC",
+                            },
+                          }}
+                        >
+                          <SnowflakeIcon
+                            sx={{ transform: "translateY(4px)" }}
+                          />{" "}
+                          2024/2025 Winter Details
+                        </Grid>
+                      )}
+                    </Grid>
+                  </Grid>
+                  <Typography
+                    variant={isTabletDevice || isMobileDevice ? "body1" : "h6"}
+                    sx={{ maxWidth: "510px", mt: 2, zIndex: 1000 }}
+                  >
+                    {seasonsObject[key].textDescription}
+                  </Typography>
+                </Grid>
               </Grid>
-            </Grid>
-          </animated.div>
-        );
-      })}
+            </animated.div>
+          );
+        })}
+      </Grid>
     </Grid>
   );
 }
