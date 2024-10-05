@@ -57,7 +57,7 @@ function Services({ onItemClick }: { onItemClick: (route: string) => void }) {
 
   return (
     <Grid
-      sx={{ backgroundColor: "black", position: "relative", zIndex: 10000 }}
+      sx={{ backgroundColor: "black", position: "relative", zIndex: 100 }}
     >
       <Typography
         variant="h3"
