@@ -52,6 +52,7 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
         m: 0,
         p: 0,
         width: "100%",
+        maxWidth: "100vw",
       }}
     >
       <section id="top" />
@@ -144,7 +145,6 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
               alt="Leaves"
               style={{
                 width: isMobileDevice || isTabletDevice ? "110%" : "90%",
-                marginTop: isMobileDevice ? "-100px" : "0",
                 transform: `translateX(${
                   isMobileDevice ? "-14%" : "-10%"
                 }) translateY(-5%) rotateY(0deg) scale(1)`,
@@ -165,6 +165,7 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
               /* mixBlendMode: "difference", */
               backdropFilter: "blur(10px)",
               backgroundColor: "black",
+              width: isMobileDevice ? "100vw" : "fit-content",
             }}
           >
             <Typography
@@ -226,7 +227,7 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
             </section>
           </Grid>
           <section id="snow">
-            <Snow onItemClick={onItemClick} />
+            <Snow />
           </section>
           <section id="about">
             <About />

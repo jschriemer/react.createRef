@@ -3,6 +3,7 @@ import { Grid, Typography, IconButton, Drawer } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
 import KonaCareLogo from "../../assets/konacarelogo.svg";
+import CancelPresentationIcon from "@mui/icons-material/CancelPresentation";
 
 const Header = ({
   fontColor = "#F7F7FF",
@@ -87,7 +88,9 @@ const Header = ({
               }}
             >
               {isMenuOpen ? (
-                <MenuIcon sx={{ width: "40px", height: "40px" }} />
+                <CancelPresentationIcon
+                  sx={{ width: "40px", height: "40px" }}
+                />
               ) : (
                 <MenuIcon sx={{ width: "40px", height: "40px" }} />
               )}

@@ -78,7 +78,7 @@ function Services({ onItemClick }: { onItemClick: (route: string) => void }) {
         pb: isMobileDevice ? 10 : 0,
         mb: isMobileDevice ? 0 : 25,
         zIndex: 100,
-        m: "auto",
+        m: isMobileDevice ? 0 : "auto",
         color: "#F7F7FF",
       }}
     >
@@ -101,6 +101,7 @@ function Services({ onItemClick }: { onItemClick: (route: string) => void }) {
                   : isTabletDevice
                   ? "450px"
                   : "300px",
+                maxWidth: isMobileDevice ? "100%" : "600px",
               }}
             >
               <Grid
@@ -120,6 +121,7 @@ function Services({ onItemClick }: { onItemClick: (route: string) => void }) {
                   <Grid
                     container
                     sx={{
+                      flexDirection: (isMobileDevice || isTabletDevice) ? "column" : "row",
                       flexWrap: "nowrap",
                       alignItems: "baseline",
                       justifyContent: "space-between",

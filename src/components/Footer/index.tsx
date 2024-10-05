@@ -49,7 +49,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
         >
           <Grid>
             <Grid container>
-              <Grid sx={{ width: isMobileDevice ? "180px" : "300px" }}>
+              <Grid sx={{ width: isMobileDevice ? "150px" : "300px" }}>
                 <Typography variant="overline">Kona Care</Typography>
                 <Grid
                   container
@@ -87,7 +87,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                       sx={{
                         textDecoration: "none",
                         cursor: "pointer",
-                        fontWeight: "bold",
+                        fontWeight: "400",
                       }}
                     >
                       About Us
@@ -119,7 +119,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                       sx={{
                         textDecoration: "none",
                         cursor: "pointer",
-                        fontWeight: "bold",
+                        fontWeight: "400",
                       }}
                     >
                       Snow Removal
@@ -151,7 +151,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                       sx={{
                         textDecoration: "none",
                         cursor: "pointer",
-                        fontWeight: "bold",
+                        fontWeight: "400",
                       }}
                     >
                       Lawn Care
@@ -183,7 +183,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                       sx={{
                         textDecoration: "none",
                         cursor: "pointer",
-                        fontWeight: "bold",
+                        fontWeight: "400",
                       }}
                     >
                       Garden Design
@@ -230,7 +230,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                       sx={{
                         textDecoration: "none",
                         cursor: "pointer",
-                        fontWeight: "bold",
+                        fontWeight: "400",
                       }}
                     >
                       Contact Us
@@ -262,7 +262,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                       sx={{
                         textDecoration: "none",
                         cursor: "pointer",
-                        fontWeight: "bold",
+                        fontWeight: "400",
                       }}
                     >
                       Terms of Service
@@ -294,7 +294,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                       sx={{
                         textDecoration: "none",
                         cursor: "pointer",
-                        fontWeight: "bold",
+                        fontWeight: "400",
                       }}
                     >
                       Privacy Policy
@@ -326,7 +326,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
                       sx={{
                         textDecoration: "none",
                         cursor: "pointer",
-                        fontWeight: "bold",
+                        fontWeight: "400",
                       }}
                     >
                       Accessibility
@@ -345,15 +345,17 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
               </Grid>
             </Grid>
           </Grid>
-          <img
-            onClick={() => onItemClick("/top")}
-            src={Kona}
-            alt="Kona Care Logo"
-            style={{
-              width: isMobileDevice ? "100px" : "200px",
-              cursor: "pointer",
-            }}
-          />
+          {!isMobileDevice && (
+            <img
+              onClick={() => onItemClick("/top")}
+              src={Kona}
+              alt="Kona Care Logo"
+              style={{
+                width: "200px",
+                cursor: "pointer",
+              }}
+            />
+          )}
         </Grid>
       </Grid>
       <Grid>
@@ -362,7 +364,8 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
           justifyContent="space-between"
           sx={{
             color: "#F7F7FF",
-            padding: "8px",
+            padding: isMobileDevice ? 0 : "8px",
+            pb: isMobileDevice ? 4 : "8px",
             bottom: 0,
             width: "100%",
             zIndex: 100,
@@ -370,7 +373,7 @@ const Footer: React.FC<FooterProps> = ({ onItemClick }) => {
           }}
         >
           {isMobileDevice ? (
-            <Grid item sx={{ width: "100%", px: 2, pt: 2 }}>
+            <Grid item sx={{ width: "100%", px: 0, pt: 2 }}>
               <Grid container sx={{ flexDirection: "column" }}>
                 {/* rooted in calgary text and socials  */}
                 <Grid item sx={{ mb: 1 }}>

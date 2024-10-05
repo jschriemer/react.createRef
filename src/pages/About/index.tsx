@@ -35,30 +35,36 @@ function About() {
               my: "10%",
               px: isMobileDevice ? 4 : 10,
               py: isMobileDevice || isTabletDevice ? 6 : 0,
-              minWidth: isTabletDevice ? "400px" : "none",
+              minWidth: isTabletDevice ? "450px" : "none",
               //backgroundColor: "#266BBC",
               height: "100%",
               zIndex: 100,
             }}
           >
             <Typography
-              variant={isMobileDevice ? "body1" : "h5"}
-              sx={{ maxWidth: isMobileDevice ? "none" : "500px" }}
+              variant={isMobileDevice ? "h4" : "h4"}
+              sx={{ maxWidth: isMobileDevice ? "300px" : "500px",mb: 4 }}
+            >
+              About Us
+            </Typography>
+            <Typography
+              variant={isMobileDevice ? "h6" : "h5"}
+              sx={{ maxWidth: isMobileDevice ? "300px" : "500px" }}
             >
               Kona Care has been providing landscaping, lawn care, and snow
               removal services to the Calgary area{" "}
               <span style={{ color: "#fe914c" }}>since 2018</span>.
             </Typography>
             <Typography
-              variant={isMobileDevice ? "body1" : "h5"}
-              sx={{ mt: 6, maxWidth: "500px" }}
+              variant={isMobileDevice ? "h6" : "h5"}
+              sx={{ mt: 6, maxWidth: isMobileDevice ? "300px" : "500px" }}
             >
               Kona Care works with local nurseries to provide and plant native
               plants and trees that will last in Calgary’s climate.
             </Typography>
             <Typography
-              variant={isMobileDevice ? "body1" : "h5"}
-              sx={{ mt: 6, maxWidth: "500px" }}
+              variant={isMobileDevice ? "h6" : "h5"}
+              sx={{ mt: 6, maxWidth: isMobileDevice ? "300px" : "500px" }}
             >
               Our goal is to provide exceptional work and deliver quality
               services. Contact us today and see what we can do for you.{" "}
@@ -70,7 +76,7 @@ function About() {
             item
             sx={{
               mt: isMobileDevice ? 2 : "10%",
-              px: isMobileDevice ? 4 : 10,
+              px: isMobileDevice || isTabletDevice  ? 4 : 10,
               py: 0,
             }}
           >
@@ -83,6 +89,7 @@ function About() {
                 maxHeight: "900px",
                 objectFit: "cover",
                 marginBottom: isMobileDevice ? "50px" : "none",
+                borderRadius: '16px'
               }}
             />
           </Grid>

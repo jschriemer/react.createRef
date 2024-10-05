@@ -15,9 +15,10 @@ import CloudOffIcon from "@mui/icons-material/CloudOff";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EmailIcon from "@mui/icons-material/Email";
 import emailjs from "emailjs-com";
-import calgary from "../../assets/calgary.png";
 import PhoneIcon from "@mui/icons-material/Phone";
 import Kona from "../../assets/konacarelogo.svg";
+import KonaLogo from "../../assets/kona.svg";
+import CareLogo from "../../assets/care.svg";
 
 const SERVICE_ID: string = import.meta.env.VITE_EMAILJS_SERVICE_ID || "";
 const TEMPLATE_ID: string = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "";
@@ -120,80 +121,87 @@ function Contact() {
         color: "black",
         position: "relative",
         pt: 2,
-        backgroundColor: 'black'
+        backgroundColor: "black",
       }}
     >
       <Grid>
         <Grid container sx={{ flexWrap: isMobileDevice ? "wrap" : "nowrap" }}>
           {/* glass background card*/}
-          <Box
-            sx={{
-              zIndex: 10,
-              px: 8,
-              py: 4,
-              //backgroundColor: "rgba(255, 255, 255, 0.9)",
-              //backdropFilter: "blur(5px)",
-              //borderRadius: 2,
-              color: "white",
-              
-             
-              height: "100%",
-            }}
-          >
-            <Grid container sx={{ flexDirection: "column" }}>
-              <img
-                src={Kona}
-                alt="Kona Care Logo"
-                style={{
-                  width: isMobileDevice ? "100px" : "150px",
-                  transform: "translateX(-15px)",
-                }}
-              />
-              <Box display="flex" alignItems="center" mb={1} sx={{ mt: 0 }}>
-                <LocationOnIcon sx={{ mr: 1 }} />
-                <Typography variant="h6">Marda Loop, Calgary, AB</Typography>
-              </Box>
-              <Box display="flex" alignItems="center" mb={1} sx={{ mt: 1 }}>
-                <EmailIcon sx={{ mr: 1 }} />
-                <Typography
-                  variant="h6"
-                  component="a"
-                  href="mailto:markus@konacare.ca"
-                  sx={{ textDecoration: "none", color: "#F15A23" }}
-                >
-                  markus@konacare.ca
-                </Typography>
-              </Box>
-              <Box display="flex" alignItems="center" mb={2} sx={{ mt: 1 }}>
-                <PhoneIcon sx={{ mr: 1 }} />
-                <Typography
-                  variant="h6"
-                  sx={{ textDecoration: "none" }}
-                >
-                  587 889 8999
-                </Typography>
-              </Box>
-            </Grid>
-            <Grid
-              item
+          {!isMobileDevice && (
+            <Box
               sx={{
-                height: "500px",
-                width: "400px",
+                zIndex: 10,
+                pl: 8,
+                py: 4,
+                //backgroundColor: "rgba(255, 255, 255, 0.9)",
+                //backdropFilter: "blur(5px)",
+                //borderRadius: 2,
+                color: "black",
+                //border: "1px solid white",
+                height: "100%",
+                display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "flex-start",
-                padding: isMobileDevice ? 2 : 8,
-
-                backgroundImage: `url(${calgary})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                //border: "1px solid #000",
-                borderRadius: 4,
-
-                //opacity: 0.5,
+                justifyContent: "space-between",
               }}
-            ></Grid>
-          </Box>
+            >
+              <Grid sx={{ height: isMobileDevice ? "220px" : "300px" }}>
+                <img
+                  src={KonaLogo}
+                  alt="Kona Logo"
+                  style={{ width: "200px" }}
+                />
+                <img
+                  src={CareLogo}
+                  alt="Care Logo"
+                  style={{ width: "200px" }}
+                />
+              </Grid>{" "}
+              <Grid
+                container
+                sx={{
+                  flexDirection: "column",
+                  backgroundColor: "#F15A23",
+                  p: 4,
+                  borderRadius: "16px 0 0 0",
+                }}
+              >
+                <img
+                  src={Kona}
+                  alt="Kona Care Logo"
+                  style={{
+                    width: isMobileDevice ? "100px" : "150px",
+                    transform: "translateX(-15px)",
+                    filter: "brightness(100) invert(1)",
+                  }}
+                />
+                <Box display="flex" alignItems="center" mb={1} sx={{ mt: 0 }}>
+                  <LocationOnIcon sx={{ mr: 1 }} />
+                  <Typography variant="h6">Marda Loop, Calgary, AB</Typography>
+                </Box>
+                <Box display="flex" alignItems="center" mb={1} sx={{ mt: 1 }}>
+                  <EmailIcon sx={{ mr: 1 }} />
+                  <Typography
+                    variant="h6"
+                    component="a"
+                    href="mailto:markus@konacare.ca"
+                    sx={{
+                      textDecoration: "underline",
+                      color: "black",
+                      textUnderlineOffset: "4px",
+                    }}
+                  >
+                    markus@konacare.ca
+                  </Typography>
+                </Box>
+                <Box display="flex" alignItems="center" mb={2} sx={{ mt: 1 }}>
+                  <PhoneIcon sx={{ mr: 1 }} />
+                  <Typography variant="h6" sx={{ textDecoration: "none" }}>
+                    587 889 8999
+                  </Typography>
+                </Box>
+              </Grid>
+            </Box>
+          )}
 
           {/* Right side with contact form */}
           <Grid
@@ -207,8 +215,9 @@ function Contact() {
               padding: isMobileDevice ? 4 : 10,
               zIndex: 1000,
               width: "100%",
-              borderRadius: 4,
               my: 4,
+              minWidth: "400px",
+              borderRadius: 4,
             }}
           >
             <Box
@@ -334,7 +343,6 @@ function Contact() {
                   Send
                 </Button>
               </form>
-              
             </Box>
 
             <Snackbar
@@ -361,22 +369,91 @@ function Contact() {
               </Alert>
             </Snackbar>
           </Grid>
+
+          {isMobileDevice && (
+            <Box
+              sx={{
+                zIndex: 10,
+                pl: 8,
+                py: 4,
+                color: "black",
+                height: "100%",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+              }}
+            >
+              <Grid sx={{ mb: 1 }}>
+                <Grid container sx={{ flexWrap: "nowrap" }}>
+                  <img
+                    src={KonaLogo}
+                    alt="Kona Logo"
+                    style={{ width: "120px" }}
+                  />
+                  <img
+                    src={CareLogo}
+                    alt="Care Logo"
+                    style={{ width: "120px", marginLeft: 2 }}
+                  />
+                </Grid>
+              </Grid>
+              <Grid
+                container
+                sx={{
+                  flexDirection: "column",
+                  backgroundColor: "#F15A23",
+                  p: 4,
+                  borderRadius: 4,
+                }}
+              >
+                <img
+                  src={Kona}
+                  alt="Kona Care Logo"
+                  style={{
+                    width: isMobileDevice ? "100px" : "150px",
+                    transform: "translateX(-15px)",
+                    filter: "brightness(100) invert(1)",
+                  }}
+                />
+                <Box display="flex" alignItems="center" mb={1} sx={{ mt: 0 }}>
+                  <LocationOnIcon sx={{ mr: 1 }} />
+                  <Typography variant="h6">Marda Loop, Calgary, AB</Typography>
+                </Box>
+                <Box display="flex" alignItems="center" mb={1} sx={{ mt: 1 }}>
+                  <EmailIcon sx={{ mr: 1 }} />
+                  <Typography
+                    variant="h6"
+                    component="a"
+                    href="mailto:markus@konacare.ca"
+                    sx={{ textDecoration: "none", color: "black" }}
+                  >
+                    markus@konacare.ca
+                  </Typography>
+                </Box>
+                <Box display="flex" alignItems="center" mb={2} sx={{ mt: 1 }}>
+                  <PhoneIcon sx={{ mr: 1 }} />
+                  <Typography variant="h6" sx={{ textDecoration: "none" }}>
+                    587 889 8999
+                  </Typography>
+                </Box>
+              </Grid>
+            </Box>
+          )}
         </Grid>
       </Grid>
-       {/* blue banner for snow removal contact */}
-       <Grid
-          item
-          sx={{
-            position: "absolute",
-            left: 0,
-            bottom: 0,
-            width: "100%",
-            height: isMobileDevice ? "210px" : "320px",
-            backgroundColor: "#F15A23",
-            zIndex: 1,
-          }}
-        />
-        
+      {/* blue banner for snow removal contact */}
+      <Grid
+        item
+        sx={{
+          position: "absolute",
+          left: 0,
+          bottom: 0,
+          width: "100%",
+          height: isMobileDevice ? "210px" : "320px",
+          backgroundColor: "#F15A23",
+          zIndex: 1,
+        }}
+      />
     </Grid>
   );
 }
