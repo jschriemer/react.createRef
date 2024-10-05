@@ -153,6 +153,7 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
               alt="Leaves"
               style={{
                 width: isMobileDevice || isTabletDevice ? "110%" : "90%",
+                marginTop: isMobileDevice ? "-100px" : "0",
                 transform: `translateX(${
                   isMobileDevice ? "-14%" : "-10%"
                 }) translateY(-5%) rotateY(0deg) scale(1)`,
