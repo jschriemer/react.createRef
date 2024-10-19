@@ -73,7 +73,7 @@ const TermsOfService: React.FC = () => {
             </Typography>
             <Typography variant="body1">
               All content on our website, including text, graphics, logos, and
-              images, are the property of Poly Star Sport and/or 99 Sports and
+              images, are the property of Kona Care and
               their content suppliers and is protected by copyright and other
               intellectual property laws. You may not reproduce, distribute, or
               create derivative works from any content on our website without
@@ -105,9 +105,8 @@ const TermsOfService: React.FC = () => {
             </Typography>
             <Typography variant="body1">
               These Terms and Services are governed by and construed in
-              accordance with the laws of British Columbia, Canada. Any disputes
-              arising from these terms will be resolved in the courts of British
-              Columbia.
+              accordance with the laws of Alberta, Canada. Any disputes
+              arising from these terms will be resolved in the courts of Alberta.
             </Typography>
 
             <Typography variant="h5" gutterBottom sx={{ mt: 4 }}></Typography>
