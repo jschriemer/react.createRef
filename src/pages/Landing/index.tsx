@@ -3,10 +3,11 @@ import { useParallax } from "react-scroll-parallax";
 import "react-social-icons/tiktok";
 import "react-social-icons/instagram";
 import { useIsMobile, useIsTablet } from "../../utils/screenWidth";
-import Skyline from "../../assets/calgarySkyline.webp";
+import Skyline from "/calgarySkyline.webp";
+import SkylineMobile from "/calgarySkylineMobile.webp";
 import KonaLogo from "../../assets/kona.svg";
 import CareLogo from "../../assets/care.svg";
-import Leaves from "../../assets/leaves.webp";
+import Leaves from "/leaves.webp";
 import Contact from "../Contact";
 import About from "../About";
 import Services from "../Services";
@@ -197,14 +198,14 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
 
           {/* SKYLINE */}
           <img
-            src={Skyline}
+            src={isMobileDevice ? SkylineMobile : Skyline}
             alt="Calgary Skyline"
             style={{
               position: "absolute",
               left: -1,
               bottom: isMobileDevice ? 200 : isTabletDevice ? 300 : 100,
               width: "101%",
-              height: "auto",
+              height: isMobileDevice ? "300px" : "auto",
               zIndex: 100,
               filter: "contrast(0%) brightness(0%)",
             }}

@@ -133,7 +133,7 @@ function Snow() {
               }}
             >
               {services.map((service) => (
-                <Grid>
+                <Grid key={service.id}>
                   <Grid container sx={{ flexDirection: "column" }}>
                     <Grid sx={{ maxWidth: "240px" }}>
                       <Typography variant="body1">

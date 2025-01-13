@@ -42,9 +42,6 @@ const Header = ({
   };
 
   const headerStyle = {
-    backgroundColor: isScrolled ? "rgba(0, 0, 0, 0.4)" : "transparent",
-    backdropFilter: isScrolled ? "blur(10px)" : "none",
-    transition: "background-color 0.3s ease, backdrop-filter 0.3s ease",
     color: fontColor,
     justifyContent: "space-between",
     alignItems: "center",
@@ -61,6 +58,12 @@ const Header = ({
       <Grid
         item
         onClick={() => onItemClick("/top")}
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onItemClick("/top");
+          }
+        }}
         sx={{ width: "100px", zIndex: 1000000, cursor: "pointer" }}
       >
         <img src={KonaCareLogo} style={{ marginTop: 10 }} alt="Kona Care" />
@@ -106,6 +109,7 @@ const Header = ({
                 onClick={toggleMenu}
                 onKeyDown={toggleMenu}
                 style={{ width: "100vw" }}
+                tabIndex={0}
               >
                 <Grid
                   container
@@ -148,10 +152,20 @@ const Header = ({
           <Grid
             container
             sx={{
-              justifyContent: "space-between",
+              justifyContent: "space-around",
               alignItems: "center",
               flexWrap: "nowrap",
               mt: 1,
+              p: 1,
+              px: 2,
+              borderRadius: 4,
+              //border: "1px solid white",
+              backgroundColor: isScrolled
+                ? "rgba(255, 255, 255, 0.9)"
+                : "transparent",
+              backdropFilter: isScrolled ? "blur(10px)" : "none",
+              transition: "all 0.3s ease, backdrop-filter 0.3s ease",
+              transform: isScrolled ? "translateY(-14px)" : "translateY(0)",
             }}
           >
             {menuItems.slice(1).map((menuItem) => (
@@ -159,6 +173,12 @@ const Header = ({
                 item
                 key={menuItem.title}
                 onClick={() => onItemClick(menuItem.route)}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    onItemClick(menuItem.route);
+                  }
+                }}
                 //to={{ pathname: menuItem.route }}
                 sx={{
                   textDecoration: "none",
