@@ -154,7 +154,7 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
               alt="Leaves"
               style={{
                 width: isMobileDevice || isTabletDevice ? "110%" : "90%",
-                marginTop: isMobileDevice ? "-100px" : "0",
+                marginTop: isMobileDevice ? "-80px" : "0",
                 transform: `translateX(${
                   isMobileDevice ? "-14%" : "-10%"
                 }) translateY(-5%) rotateY(0deg) scale(1)`,
@@ -205,7 +205,7 @@ function Landing({ onItemClick }: { onItemClick: (route: string) => void }) {
               left: -1,
               bottom: isMobileDevice ? 200 : isTabletDevice ? 300 : 100,
               width: "101%",
-              height: isMobileDevice ? "300px" : "auto",
+              height: isMobileDevice ? "220px" : "auto",
               zIndex: 100,
               filter: "contrast(0%) brightness(0%)",
             }}
